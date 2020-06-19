@@ -29,10 +29,8 @@ spec:
   - name: datapackage
     port: 8080
     protocol: TCP
-    nodePort:
   - name: clientport
     port: 8087
     protocol: TCP
-    nodePort:
   selector:
     app: {{ template "freetakserver.fullname" . }}

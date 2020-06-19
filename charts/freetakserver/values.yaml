@@ -1,6 +1,6 @@
 # ref: https://hub.docker.com/r/rlex/freetakserver/
 image: rlex/freetakserver
-imageTag: 0.8.19.4
+imageTag: 0.8.19.5
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
@@ -27,18 +27,18 @@ readinessProbe:
   tcpSocket:
     port: clientport
   initialDelaySeconds: 30
-  periodSeconds: 5
+  periodSeconds: 30
   failureThreshold: 10
   successThreshold: 1
-  timeoutSeconds: 1
+  timeoutSeconds: 3
 livenessProbe:
   tcpSocket:
     port: clientport
   initialDelaySeconds: 30
-  periodSeconds: 5
+  periodSeconds: 30
   failureThreshold: 10
   successThreshold: 1
-  timeoutSeconds: 1
+  timeoutSeconds: 3
 freetakserver:
   serviceType: LoadBalancer
   loadBalancerIP:
