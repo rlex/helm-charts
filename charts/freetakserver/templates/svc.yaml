@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "freetakserver.fullname" . }}
+  labels:
+    app: {{ template "freetakserver.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+{{- if (or (eq .Values.freetakserver.serviceType "ClusterIP") (empty .Values.freetakserver.serviceType)) }}
+  type: ClusterIP
+{{- else if eq .Values.freetakserver.serviceType "LoadBalancer" }}
+  type: {{ .Values.freetakserver.serviceType }}
+  {{- if .Values.freetakserver.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.freetakserver.loadBalancerIP }}
+  {{- end }}
+  {{- if .Values.freetakserver.loadBalancerSourceRanges }}
+  loadBalancerSourceRanges:
+{{ toYaml .Values.freetakserver.loadBalancerSourceRanges | indent 4 }}
+  {{- end -}}
+{{- else }}
+  type: {{ .Values.freetakserver.serviceType }}
+{{- end }}
+  {{- if .Values.freetakserver.externalTrafficPolicy }}
+  externalTrafficPolicy: {{ .Values.freetakserver.externalTrafficPolicy }}
+  {{- end }}
+  ports:
+  - name: datapackage
+    port: 8080
+    protocol: TCP
+    nodePort:
+  - name: clientport
+    port: 8087
+    protocol: TCP
+    nodePort:
+  selector:
+    app: {{ template "freetakserver.fullname" . }}

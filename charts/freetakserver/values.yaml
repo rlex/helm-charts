@@ -1,0 +1,70 @@
+# ref: https://hub.docker.com/r/rlex/freetakserver/
+image: rlex/freetakserver
+imageTag: 0.8.19.4
+
+## Configure resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+##
+resources:
+  requests:
+    memory: 512Mi
+    cpu: 500m
+
+# upgrade strategy type (e.g. Recreate or RollingUpdate)
+strategyType: Recreate
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+securityContext:
+  # Security context settings
+  runAsUser: 1000
+  fsGroup: 2000
+readinessProbe:
+  tcpSocket:
+    port: clientport
+  initialDelaySeconds: 30
+  periodSeconds: 5
+  failureThreshold: 10
+  successThreshold: 1
+  timeoutSeconds: 1
+livenessProbe:
+  tcpSocket:
+    port: clientport
+  initialDelaySeconds: 30
+  periodSeconds: 5
+  failureThreshold: 10
+  successThreshold: 1
+  timeoutSeconds: 1
+freetakserver:
+  serviceType: LoadBalancer
+  loadBalancerIP:
+  # loadBalancerSourceRanges: []
+  ## Set the externalTrafficPolicy in the Service to either Cluster or Local
+  # externalTrafficPolicy: Cluster
+
+## Additional freetakserver container environment variables
+##
+extraEnv: {}
+
+persistence:
+  ## freetakserver data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  dataDir:
+    # Set this to false if you don't care to persist state between restarts.
+    enabled: false
+    # existingClaim: nil
+    Size: 1Gi
+
+podAnnotations: {}
+
+deploymentAnnotations: {}
