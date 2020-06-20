@@ -1,6 +1,6 @@
 # ref: https://hub.docker.com/r/rlex/freetakserver/
 image: rlex/freetakserver
-imageTag: 0.8.19.5
+imageTag: latest
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
