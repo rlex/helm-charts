@@ -22,7 +22,7 @@ affinity: {}
 securityContext:
   # Security context settings
   runAsUser: 1000
-  fsGroup: 2000
+  fsGroup: 1000
 readinessProbe:
   tcpSocket:
     port: clientport
