@@ -96,22 +96,3 @@ spec:
       tolerations:
 {{ toYaml .Values.tolerations | indent 8 }}
     {{- end }}
-      initContainers:
-      - name: create-datapackage-dir
-        image: busybox
-        command:
-        - mkdir
-        - "-p"
-        - "/data/fts_datapackages"
-        volumeMounts:
-        - name: datadir
-          mountPath: "/data"
-      - name: create-log-dir
-        image: busybox
-        command:
-        - mkdir
-        - "-p"
-        - "/data/logs"
-        volumeMounts:
-        - name: datadir
-          mountPath: "/data"

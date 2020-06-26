@@ -45,7 +45,8 @@ freetakserver:
   # loadBalancerSourceRanges: []
   ## Set the externalTrafficPolicy in the Service to either Cluster or Local
   # externalTrafficPolicy: Cluster
-
+  service:
+    annotations: {}
 ## Additional freetakserver container environment variables
 ##
 extraEnv: {}
