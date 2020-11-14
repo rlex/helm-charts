@@ -56,8 +56,8 @@ spec:
           successThreshold: {{ .Values.livenessProbe.successThreshold }}
           timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
         env:
-        - name: DATAPACKAGE_SERVER_IP
-          value: {{ .Values.freetakserver.datapackage_server_ip | quote }}
+        - name: FTS_ARGS
+          value: {{ .Values.freetakserver.args | quote }}
 
         {{- range $key, $value := .Values.extraEnv }}
         - name: {{ $key }}

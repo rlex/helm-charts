@@ -47,7 +47,7 @@ freetakserver:
   # externalTrafficPolicy: Cluster
   service:
     annotations: {}
-  datapackage_server_ip: ""
+  args: ""
 ## Additional freetakserver container environment variables
 ##
 extraEnv: {}
