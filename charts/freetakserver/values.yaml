@@ -1,6 +1,6 @@
 # ref: https://hub.docker.com/r/rlex/freetakserver/
-image: rlex/freetakserver
-imageTag: latest
+image: freetakteam/freetakserver
+imageTag: 1.2.5
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
@@ -47,7 +47,9 @@ freetakserver:
   # externalTrafficPolicy: Cluster
   service:
     annotations: {}
-  args: ""
+  connectionMessage: ""
+  saveCotToDb: True
+  args: "-AutoStart True"
 ## Additional freetakserver container environment variables
 ##
 extraEnv: {}

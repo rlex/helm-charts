@@ -58,7 +58,10 @@ spec:
         env:
         - name: FTS_ARGS
           value: {{ .Values.freetakserver.args | quote }}
-
+        - name: FTS_CONNECTION_MESSAGE
+          value: {{ .Values.freetakserver.connectionMessage | quote }}
+        - name: FTS_SAVE_COT_TO_DB
+          value: {{ .Values.freetakserver.saveCotToDb | quote }}
         {{- range $key, $value := .Values.extraEnv }}
         - name: {{ $key }}
           value: {{ $value }}
