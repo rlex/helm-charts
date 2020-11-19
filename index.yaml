@@ -3,6 +3,25 @@ entries:
   freetakserver:
   - apiVersion: v1
     appVersion: 1.2.5
+    created: "2020-11-19T15:18:23.698116738Z"
+    description: FTS is a Python3 implementation of the TAK Server
+    digest: c28bf213280ae3551301b2929ad0f1fef5b59579cfa500728444cb0206e97ba4
+    home: https://github.com/Tapawingo/FreeTakServer
+    keywords:
+    - TAK
+    - CivTAK
+    - ATAK
+    maintainers:
+    - email: me@lex.io
+      name: lex
+    name: freetakserver
+    sources:
+    - https://github.com/FreeTAKTeam/FreeTAKServer-Docker
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/freetakserver-1.0.9/freetakserver-1.0.9.tgz
+    version: 1.0.9
+  - apiVersion: v1
+    appVersion: 1.2.5
     created: "2020-11-19T15:14:59.607728829Z"
     description: FTS is a Python3 implementation of the TAK Server
     digest: 5c8ecb827e3d5b2753ee5ffde7a46fd72fbf63395a53d742a8390685cc65c979
