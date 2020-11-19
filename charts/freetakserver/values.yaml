@@ -49,7 +49,8 @@ freetakserver:
     annotations: {}
   connectionMessage: ""
   saveCotToDb: True
-  args: "-AutoStart True"
+  dataPackageHost: "0.0.0.0"
+  args: ""
 ## Additional freetakserver container environment variables
 ##
 extraEnv: {}
