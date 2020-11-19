@@ -35,7 +35,7 @@ spec:
         fsGroup: {{ .Values.securityContext.fsGroup }}
       containers:
       - name: {{ template "freetakserver.fullname" . }}
-        image: "{{ .Values.image }}:{{ .Values.imageTag }}"
+        image: "{{ .Values.image }}:{{ .Values.image.tag }}"
         imagePullPolicy: Always
         resources:
 {{ toYaml .Values.resources | indent 10 }}
