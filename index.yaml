@@ -232,6 +232,16 @@ entries:
   kube-web-view:
   - apiVersion: v2
     appVersion: 21.2.0
+    created: "2021-10-06T20:48:07.396714069Z"
+    description: A Helm chart for Kubernetes
+    digest: 9f60bfb2de0e433de32ce418f1da24045abbc444fdbfe0f6afe9ce301046087d
+    name: kube-web-view
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/kube-web-view-0.1.1/kube-web-view-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 21.2.0
     created: "2021-10-06T19:48:07.876960766Z"
     description: A Helm chart for Kubernetes
     digest: 3f7d134d929e2d62ba7cd2a7c0b443ce4930b26faaf89841f5645d536a92110d
@@ -279,4 +289,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/prometheus-webhook-dingtalk-0.0.2/prometheus-webhook-dingtalk-0.0.2.tgz
     version: 0.0.2
-generated: "2021-10-06T19:48:07.877235586Z"
+generated: "2021-10-06T20:48:07.39676727Z"
