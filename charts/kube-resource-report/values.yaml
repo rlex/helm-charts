@@ -55,14 +55,13 @@ pricing:
     dc-1,worker,500.000
 
 service:
-  type: ClusterIP
-  port: 8080
-  portName: http
-
+    type: ClusterIP
+    port: 80
+    portName: http
 container:
-  port: 8080
-  portName: http
-  portProtocol: TCP
+    port: 8080
+    portName: http
+    portProtocol: TCP
 
 ingress:
   enabled: false
