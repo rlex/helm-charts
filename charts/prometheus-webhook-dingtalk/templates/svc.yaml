@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "prometheus-webhook-dingtalk.fullname" . }}
+  labels:
+    app: {{ template "prometheus-webhook-dingtalk.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+  annotations:
+  {{- range $key, $value := .Values.prometheus_webhook_dingtalk.service.annotations }}
+    {{ $key }}: {{ $value | quote }}
+  {{- end }}
+spec:
+{{- if (or (eq .Values.prometheus_webhook_dingtalk.serviceType "ClusterIP") (empty .Values.prometheus_webhook_dingtalk.serviceType)) }}
+  type: ClusterIP
+{{- else if eq .Values.prometheus_webhook_dingtalk.serviceType "LoadBalancer" }}
+  type: {{ .Values.prometheus_webhook_dingtalk.serviceType }}
+  {{- if .Values.prometheus_webhook_dingtalk.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.prometheus_webhook_dingtalk.loadBalancerIP }}
+  {{- end }}
+  {{- if .Values.prometheus_webhook_dingtalk.loadBalancerSourceRanges }}
+  loadBalancerSourceRanges:
+{{ toYaml .Values.prometheus_webhook_dingtalk.loadBalancerSourceRanges | indent 4 }}
+  {{- end -}}
+{{- else }}
+  type: {{ .Values.prometheus_webhook_dingtalk.serviceType }}
+{{- end }}
+  {{- if .Values.prometheus_webhook_dingtalk.externalTrafficPolicy }}
+  externalTrafficPolicy: {{ .Values.prometheus_webhook_dingtalk.externalTrafficPolicy }}
+  {{- end }}
+  ports:
+  - name: web
+    port: 8060
+    protocol: TCP
+  selector:
+    app: {{ template "prometheus-webhook-dingtalk.fullname" . }}

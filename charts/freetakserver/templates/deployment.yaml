@@ -56,6 +56,7 @@ spec:
           successThreshold: {{ .Values.livenessProbe.successThreshold }}
           timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
         env:
+
         - name: FTS_ARGS
           value: {{ .Values.freetakserver.args | quote }}
         - name: FTS_CONNECTION_MESSAGE
