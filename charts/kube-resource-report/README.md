@@ -1,0 +1,1 @@
+Forked from [official but unsupported chart](https://codeberg.org/hjacobs/kube-resource-report/src/branch/main/unsupported/chart/kube-resource-report) with some fixes
