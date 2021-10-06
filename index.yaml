@@ -229,6 +229,18 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/freetakserver-1.0.1/freetakserver-1.0.1.tgz
     version: 1.0.1
+  kube-resource-report:
+  - apiVersion: v1
+    appVersion: 21.10.0
+    created: "2021-10-06T22:31:08.926638793Z"
+    description: Report Kubernetes cluster and pod resource requests vs usage and
+      generate static HTML
+    digest: 7953d95c1838faad462cef16862ccf652d11383ffcaf14fab20fa4e4088b8a4d
+    home: https://codeberg.org/hjacobs/kube-resource-report
+    name: kube-resource-report
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/kube-resource-report-0.7.0/kube-resource-report-0.7.0.tgz
+    version: 0.7.0
   kube-web-view:
   - apiVersion: v2
     appVersion: 21.2.0
@@ -289,4 +301,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/prometheus-webhook-dingtalk-0.0.2/prometheus-webhook-dingtalk-0.0.2.tgz
     version: 0.0.2
-generated: "2021-10-06T20:48:07.39676727Z"
+generated: "2021-10-06T22:31:08.926678593Z"
