@@ -232,6 +232,17 @@ entries:
   kube-resource-report:
   - apiVersion: v1
     appVersion: 21.10.0
+    created: "2021-10-06T22:41:13.765678989Z"
+    description: Report Kubernetes cluster and pod resource requests vs usage and
+      generate static HTML
+    digest: e1c687dbb377a0294970617065260d50daecebf60efdb5990515da4ac2123ab1
+    home: https://codeberg.org/hjacobs/kube-resource-report
+    name: kube-resource-report
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/kube-resource-report-0.7.1/kube-resource-report-0.7.1.tgz
+    version: 0.7.1
+  - apiVersion: v1
+    appVersion: 21.10.0
     created: "2021-10-06T22:31:08.926638793Z"
     description: Report Kubernetes cluster and pod resource requests vs usage and
       generate static HTML
@@ -301,4 +312,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/prometheus-webhook-dingtalk-0.0.2/prometheus-webhook-dingtalk-0.0.2.tgz
     version: 0.0.2
-generated: "2021-10-06T22:31:08.926678593Z"
+generated: "2021-10-06T22:41:13.76573309Z"
