@@ -229,6 +229,17 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/freetakserver-1.0.1/freetakserver-1.0.1.tgz
     version: 1.0.1
+  kube-web-view:
+  - apiVersion: v2
+    appVersion: 21.2.0
+    created: "2021-10-06T19:48:07.876960766Z"
+    description: A Helm chart for Kubernetes
+    digest: 3f7d134d929e2d62ba7cd2a7c0b443ce4930b26faaf89841f5645d536a92110d
+    name: kube-web-view
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/kube-web-view-0.1.0/kube-web-view-0.1.0.tgz
+    version: 0.1.0
   prometheus-webhook-dingtalk:
   - apiVersion: v1
     appVersion: 1.4.0
@@ -268,4 +279,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/prometheus-webhook-dingtalk-0.0.2/prometheus-webhook-dingtalk-0.0.2.tgz
     version: 0.0.2
-generated: "2021-10-06T00:43:06.981999863Z"
+generated: "2021-10-06T19:48:07.877235586Z"
