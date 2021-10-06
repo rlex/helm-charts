@@ -3,6 +3,25 @@ entries:
   freetakserver:
   - apiVersion: v1
     appVersion: 1.2.5
+    created: "2021-10-06T00:43:06.981938362Z"
+    description: FTS is a Python3 implementation of the TAK Server
+    digest: 7d02a4d9e2e7ebd14f6510eff925fc271c916da8411d09d4bca05120821aad28
+    home: https://github.com/Tapawingo/FreeTakServer
+    keywords:
+    - TAK
+    - CivTAK
+    - ATAK
+    maintainers:
+    - email: me@lex.io
+      name: lex
+    name: freetakserver
+    sources:
+    - https://github.com/FreeTAKTeam/FreeTAKServer-Docker
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/freetakserver-1.0.12/freetakserver-1.0.12.tgz
+    version: 1.0.12
+  - apiVersion: v1
+    appVersion: 1.2.5
     created: "2021-10-06T00:32:06.864945525Z"
     description: FTS is a Python3 implementation of the TAK Server
     digest: 151f447f08ab5babbe4ae15c35da42b25f5c2575ce7ca336f564474c3dbf4d54
@@ -249,4 +268,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/prometheus-webhook-dingtalk-0.0.2/prometheus-webhook-dingtalk-0.0.2.tgz
     version: 0.0.2
-generated: "2021-10-06T00:41:49.734804477Z"
+generated: "2021-10-06T00:43:06.981999863Z"
