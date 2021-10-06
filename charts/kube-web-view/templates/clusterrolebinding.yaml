@@ -9,4 +9,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: {{ include "kube-web-view.serviceAccountName" . }}
-  namespace: default
+  namespace: {{ .Release.Namespace }}
