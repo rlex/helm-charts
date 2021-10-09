@@ -50,6 +50,16 @@ app.kubernetes.io/name: {{ include "parca.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+{{- define "parca.selectorLabels.server" -}}
+app.kubernetes.io/name: {{ include "parca.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}-server
+{{- end }}
+
+{{- define "parca.selectorLabels.agent" -}}
+app.kubernetes.io/name: {{ include "parca.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}-agent
+{{- end }}
+
 {{/*
 Create the name of the service account to use
 */}}

@@ -2,6 +2,8 @@ apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
   name: {{ include "parca.fullname" . }}
+  labels:
+    {{- include "parca.labels" . | nindent 4 }}
 spec:
   allowPrivilegeEscalation: true
   allowedCapabilities:

@@ -10,7 +10,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      {{- include "parca.selectorLabels" . | nindent 6 }}
+      {{- include "parca.selectorLabels.server" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations.server }}
@@ -18,8 +18,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        app: parca-server
-        {{- include "parca.selectorLabels" . | nindent 8 }}
+        parca: {{ include "parca.fullname" . }}-server
+        {{- include "parca.selectorLabels.server" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:

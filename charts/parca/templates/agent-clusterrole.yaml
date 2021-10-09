@@ -2,9 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   labels:
-    app.kubernetes.io/component: observability
-    app.kubernetes.io/instance: parca-agent
-    app.kubernetes.io/name: parca-agent
+    {{- include "parca.labels" . | nindent 4 }}
   name: {{ include "parca.serviceAccountName" . }}
 rules:
 - apiGroups:
