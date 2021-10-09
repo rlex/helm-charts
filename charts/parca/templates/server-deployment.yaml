@@ -5,20 +5,21 @@ metadata:
   labels:
     {{- include "parca.labels" . | nindent 4 }}
 spec:
+{{- /*
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+*/}}
   selector:
     matchLabels:
       {{- include "parca.selectorLabels.server" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations.server }}
+      {{- with .Values.server.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        parca: {{ include "parca.fullname" . }}-server
         {{- include "parca.selectorLabels.server" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
@@ -27,13 +28,13 @@ spec:
       {{- end }}
       serviceAccountName: {{ include "parca.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext.server | nindent 8 }}
+        {{- toYaml .Values.server.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}-server
           securityContext:
-            {{- toYaml .Values.securityContext.server | nindent 12 }}
-          image: "{{ .Values.image.server.repository }}:{{ .Values.image.server.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.server.pullPolicy }}
+            {{- toYaml .Values.server.securityContext | nindent 12 }}
+          image: "{{ .Values.server.image.repository }}:{{ .Values.server.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.server.image.pullPolicy }}
           args:
             - /parca
             - --config-path=/var/parca/parca.yaml
@@ -60,20 +61,20 @@ spec:
           - mountPath: /var/parca
             name: {{ include "parca.fullname" . }}-config
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.server.resources | nindent 12 }}
       volumes:
       - configMap:
           name: {{ include "parca.fullname" . }}-config
         name: {{ include "parca.fullname" . }}-config
-      {{- with .Values.nodeSelector.server }}
+      {{- with .Values.server.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.affinity.server }}
+      {{- with .Values.server.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.tolerations.server }}
+      {{- with .Values.server.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}

@@ -5,9 +5,9 @@ metadata:
   labels:
     {{- include "parca.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.server.type }}
+  type: {{ .Values.server.service.type }}
   ports:
-    - port: {{ .Values.service.server.port }}
+    - port: {{ .Values.server.service.port }}
       targetPort: 7070
       protocol: TCP
       name: http

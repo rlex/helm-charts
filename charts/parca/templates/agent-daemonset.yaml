@@ -7,16 +7,16 @@ metadata:
 spec:
   selector:
     matchLabels:
-      {{- include "parca.selectorLabels" . | nindent 6 }}
+      {{- include "parca.selectorLabels.agent" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations.agent }}
+      {{- with .Values.agent.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
         parca: {{ include "parca.fullname" . }}-agent
-        {{- include "parca.selectorLabels" . | nindent 8 }}
+        {{- include "parca.selectorLabels.agent" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -24,13 +24,13 @@ spec:
       {{- end }}
       serviceAccountName: {{ include "parca.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext.agent | nindent 8 }}
+        {{- toYaml .Values.agent.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}-agent
           securityContext:
-            {{- toYaml .Values.securityContext.agent | nindent 12 }}
-          image: "{{ .Values.image.agent.repository }}:{{ .Values.image.agent.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.agent.pullPolicy }}
+            {{- toYaml .Values.agent.securityContext | nindent 12 }}
+          image: "{{ .Values.agent.image.repository }}:{{ .Values.agent.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.agent.image.pullPolicy }}
           args:
             - /bin/parca-agent
             - --log-level=info
@@ -50,7 +50,7 @@ spec:
             hostPort: 7071
             name: http
           securityContext:
-            {{- toYaml .Values.securityContext.agent | nindent 12 }}
+            {{- toYaml .Values.agent.securityContext | nindent 12 }}
           volumeMounts:
           - mountPath: /host/root
             name: root
@@ -71,14 +71,8 @@ spec:
           - mountPath: /etc/localtime
             name: localtime
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.agent.resources | nindent 12 }}
       hostPID: true
-      serviceAccountName: {{ include "parca.serviceAccountName" . }}
-      tolerations:
-      - effect: NoSchedule
-        operator: Exists
-      - effect: NoExecute
-        operator: Exists
       volumes:
       - hostPath:
           path: /
@@ -104,4 +98,13 @@ spec:
       - hostPath:
           path: /etc/localtime
         name: localtime
+      serviceAccountName: {{ include "parca.serviceAccountName" . }}
+      {{- with .Values.agent.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.agent.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
 
