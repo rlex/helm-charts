@@ -287,6 +287,16 @@ entries:
   parca:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2021-10-09T22:24:23.343875201Z"
+    description: A Helm chart for Kubernetes
+    digest: 1106c74f2b817721752851a6327329a3667f0d0e9cd503674b7219c1e2e175f7
+    name: parca
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/parca-0.2.0/parca-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2021-10-09T20:38:09.03212357Z"
     description: A Helm chart for Kubernetes
     digest: c028ed9f4f6255b8985a222fdecc1eba3ca0e6482e46352e6bfd0f3363305142
@@ -334,4 +344,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/prometheus-webhook-dingtalk-0.0.2/prometheus-webhook-dingtalk-0.0.2.tgz
     version: 0.0.2
-generated: "2021-10-09T20:38:09.032207171Z"
+generated: "2021-10-09T22:24:23.343966108Z"
