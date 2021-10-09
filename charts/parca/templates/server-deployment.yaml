@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "parca.fullname" . }}
+  labels:
+    {{- include "parca.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "parca.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations.server }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app: parca-server
+        {{- include "parca.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "parca.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext.server | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}-server
+          securityContext:
+            {{- toYaml .Values.securityContext.server | nindent 12 }}
+          image: "{{ .Values.image.server.repository }}:{{ .Values.image.server.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.server.pullPolicy }}
+          args:
+            - /parca
+            - --config-path=/var/parca/parca.yaml
+            - --log-level=info
+            - --cors-allowed-origins=*
+          livenessProbe:
+            exec:
+              command:
+              - /grpc-health-probe
+              - -v
+              - -addr=:7070
+            initialDelaySeconds: 5
+          ports:
+          - containerPort: 7070
+            name: all
+          readinessProbe:
+            exec:
+              command:
+              - /grpc-health-probe
+              - -v
+              - -addr=:7070
+            initialDelaySeconds: 10
+          volumeMounts:
+          - mountPath: /var/parca
+            name: {{ include "parca.fullname" . }}-config
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+      - configMap:
+          name: {{ include "parca.fullname" . }}-config
+        name: {{ include "parca.fullname" . }}-config
+      {{- with .Values.nodeSelector.server }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity.server }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations.server }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

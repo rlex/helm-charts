@@ -1,0 +1,106 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "parca.fullname" . }}-agent
+  labels:
+    {{- include "parca.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "parca.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations.agent }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "parca.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "parca.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext.agent | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}-agent
+          securityContext:
+            {{- toYaml .Values.securityContext.agent | nindent 12 }}
+          image: "{{ .Values.image.agent.repository }}:{{ .Values.image.agent.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.agent.pullPolicy }}
+          args:
+            - /bin/parca-agent
+            - --log-level=info
+            - --node=$(NODE_NAME)
+            - --kubernetes
+            - --store-address=parca.{{ .Release.Namespace }}.svc.cluster.local:7070
+            - --insecure
+            - --insecure-skip-verify
+            - --temp-dir=/tmp
+          env:
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+          ports:
+          - containerPort: 7071
+            hostPort: 7071
+            name: http
+          securityContext:
+            {{- toYaml .Values.securityContext.agent | nindent 12 }}
+          volumeMounts:
+          - mountPath: /host/root
+            name: root
+            readOnly: true
+          - mountPath: /host/proc
+            name: proc
+            readOnly: true
+          - mountPath: /run
+            name: run
+          - mountPath: /lib/modules
+            name: modules
+          - mountPath: /sys/kernel/debug
+            name: debugfs
+          - mountPath: /sys/fs/cgroup
+            name: cgroup
+          - mountPath: /sys/fs/bpf
+            name: bpffs
+          - mountPath: /etc/localtime
+            name: localtime
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      hostPID: true
+      serviceAccountName: {{ include "parca.serviceAccountName" . }}
+      tolerations:
+      - effect: NoSchedule
+        operator: Exists
+      - effect: NoExecute
+        operator: Exists
+      volumes:
+      - hostPath:
+          path: /
+        name: root
+      - hostPath:
+          path: /proc
+        name: proc
+      - hostPath:
+          path: /run
+        name: run
+      - hostPath:
+          path: /sys/fs/cgroup
+        name: cgroup
+      - hostPath:
+          path: /lib/modules
+        name: modules
+      - hostPath:
+          path: /sys/fs/bpf
+        name: bpffs
+      - hostPath:
+          path: /sys/kernel/debug
+        name: debugfs
+      - hostPath:
+          path: /etc/localtime
+        name: localtime
+
