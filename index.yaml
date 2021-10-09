@@ -284,6 +284,17 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/kube-web-view-0.1.0/kube-web-view-0.1.0.tgz
     version: 0.1.0
+  parca:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2021-10-09T20:38:09.03212357Z"
+    description: A Helm chart for Kubernetes
+    digest: c028ed9f4f6255b8985a222fdecc1eba3ca0e6482e46352e6bfd0f3363305142
+    name: parca
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/parca-0.1.0/parca-0.1.0.tgz
+    version: 0.1.0
   prometheus-webhook-dingtalk:
   - apiVersion: v1
     appVersion: 1.4.0
@@ -323,4 +334,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/prometheus-webhook-dingtalk-0.0.2/prometheus-webhook-dingtalk-0.0.2.tgz
     version: 0.0.2
-generated: "2021-10-06T23:10:42.261863587Z"
+generated: "2021-10-09T20:38:09.032207171Z"
