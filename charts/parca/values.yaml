@@ -1,66 +1,100 @@
-# Default values for parca.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-#replicaCount: 1
-
+# -- specifies pull secrets for image repository
 imagePullSecrets: []
+# -- overrides chart name
 nameOverride: ""
+# -- Overrides helm-generated chart fullname
 fullnameOverride: ""
 
 agent:
   image:
+    # -- Overrides the image repository
     repository: ghcr.io/parca-dev/parca-agent
+    # -- Overrides pullpolicy
     pullPolicy: IfNotPresent
-    # Overrides the image tag whose default is the chart appVersion.
+    # -- Overrides the image tag
     tag: "v0.1.0"
+  # -- Path to host docker/containerd/crio socket
+  socketPath: /run/containerd/containerd.sock
+  # -- Agent log level
+  logLevel: info
+  # -- label selector for filtering out pods with pprof, ie "parca=enabled"
+  podLabelSelector: ""
+  # -- Additional annotations for pods
   podAnnotations: {}
+  # -- Additional pod secutiry context
   podSecurityContext: {}
+  # -- Security context, needs to be prilileged for ful functionality
   securityContext:
     privileged: true
   service:
+    # -- service type for agent
     type: ClusterIP
+    # -- service port for agent
     port: 7071
   serviceMonitor:
+    # -- enables prometheus servicemonitor for agent
     enabled: false
+  # -- node selector for scheduling agent pods
   nodeSelector: {}
+  # -- node tolerations for scheduling agent pods
   tolerations:
     - effect: NoSchedule
       operator: Exists
     - effect: NoExecute
       operator: Exists
+  # -- resource limits and requests
   resources: {}
 
 server:
   image:
+    # -- Overrides the image repository for server
     repository: ghcr.io/parca-dev/parca
+    # -- Overrides pull policy for server
     pullPolicy: IfNotPresent
-    # Overrides the image tag whose default is the chart appVersion.
+    # -- Overrides the image tag for server
     tag: "v0.1.0"
+  # -- Sets retention period for server TSDB
+  retentionTime: 6h
+  # -- logging level of parca server
+  logLevel: info
+  # -- CORS setting
+  corsAllowedOrigins: "*"
+  # -- additional annotations for server pod
   podAnnotations: {}
+  # -- additional security context for server pod
   podSecurityContext: {}
+  # -- additional security context for server
   securityContext: {}
   service:
+    # -- service type for server
     type: ClusterIP
+    # -- service port for server
     port: 7070
   serviceMonitor:
+    # -- enables servicemonitor for server monitoring
     enabled: false
+  # -- node selector for scheduling server pod
   nodeSelector: {}
+  # -- tolerations for scheduling server pod
   tolerations: {}
+  # -- resource limits and requests for server pod
   resources: {}
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use.
+  # -- If not set and create is true, a name is generated using the fullname template
   name: ""
 
 ingress:
+  # -- enables ingress for server UI
   enabled: false
+  # -- specifies ingress class name (ie nginx)
   className: ""
+  # -- additional annotations for ingress
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
@@ -73,6 +107,10 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+# parca keeps it's TSDB in-memory, so replicas and HPAs are useless.
+# That might change in future, so let's keep that stuff comemented out, just in casr
+#server.replicaCount: 1
 
 #autoscaling:
 #  enabled: false

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "parca.fullname" . }}
+  name: {{ include "parca.fullname" . }}-server
   labels:
-    {{- include "parca.labels" . | nindent 4 }}
+    {{- include "parca.labels.server" . | nindent 4 }}
 spec:
   type: {{ .Values.server.service.type }}
   ports:

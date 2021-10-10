@@ -3,7 +3,7 @@ kind: PodSecurityPolicy
 metadata:
   name: {{ include "parca.fullname" . }}
   labels:
-    {{- include "parca.labels" . | nindent 4 }}
+    {{- include "parca.labels.agent" . | nindent 4 }}
 spec:
   allowPrivilegeEscalation: true
   allowedCapabilities:
