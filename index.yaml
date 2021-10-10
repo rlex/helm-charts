@@ -364,4 +364,15 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/prometheus-webhook-dingtalk-0.0.2/prometheus-webhook-dingtalk-0.0.2.tgz
     version: 0.0.2
-generated: "2021-10-10T14:06:09.334650697Z"
+  pyrra:
+  - apiVersion: v2
+    appVersion: v0.1.0
+    created: "2021-10-10T19:05:29.487926885Z"
+    description: A Helm chart for Kubernetes
+    digest: d7b9a9430dad3efbc84b17f1a8856d358c56889f58d3e6993d10a25a94be47ba
+    name: pyrra
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/pyrra-0.1.0/pyrra-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-10-10T19:05:29.488051285Z"
