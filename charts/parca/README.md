@@ -1,6 +1,6 @@
 # parca
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.1.0](https://img.shields.io/badge/AppVersion-v0.1.0-informational?style=flat-square)
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.1.0](https://img.shields.io/badge/AppVersion-v0.1.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -8,6 +8,7 @@ A Helm chart for Kubernetes
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| agent.enabled | bool | `true` | Allows disabling parca agent |
 | agent.image.pullPolicy | string | `"IfNotPresent"` | Overrides pullpolicy |
 | agent.image.repository | string | `"ghcr.io/parca-dev/parca-agent"` | Overrides the image repository |
 | agent.image.tag | string | `"v0.1.0"` | Overrides the image tag |

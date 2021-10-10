@@ -1,3 +1,4 @@
+{{- if .Values.agent.enabled -}}
 {{- if .Values.agent.serviceMonitor.enabled }}
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -26,4 +27,5 @@ spec:
     relabelings:
     {{ toYaml .Values.agent.serviceMonitor.relabelings | indent 4 }}
     {{- end }}
+{{- end }}
 {{- end }}

@@ -1,3 +1,4 @@
+{{- if .Values.agent.enabled -}}
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
@@ -38,3 +39,4 @@ spec:
   - downwardAPI
   - persistentVolumeClaim
   - hostPath
+{{- end }}

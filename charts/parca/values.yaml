@@ -6,6 +6,8 @@ nameOverride: ""
 fullnameOverride: ""
 
 agent:
+  # -- Allows disabling parca agent
+  enabled: true
   image:
     # -- Overrides the image repository
     repository: ghcr.io/parca-dev/parca-agent
