@@ -266,6 +266,16 @@ entries:
   kube-web-view:
   - apiVersion: v2
     appVersion: 21.2.0
+    created: "2021-10-10T19:48:15.469664368Z"
+    description: Kubernetes Web View to list and view all Kubernetes resources
+    digest: aadc77f24f417f0b7b2d8a28007a2d91f84f5b6c68c101b2167fc1b87343d09b
+    name: kube-web-view
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/kube-web-view-0.1.2/kube-web-view-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 21.2.0
     created: "2021-10-06T20:48:07.396714069Z"
     description: A Helm chart for Kubernetes
     digest: 9f60bfb2de0e433de32ce418f1da24045abbc444fdbfe0f6afe9ce301046087d
@@ -285,6 +295,16 @@ entries:
     - https://github.com/rlex/helm-charts/releases/download/kube-web-view-0.1.0/kube-web-view-0.1.0.tgz
     version: 0.1.0
   parca:
+  - apiVersion: v2
+    appVersion: v0.1.0
+    created: "2021-10-10T19:48:15.612574501Z"
+    description: Open Source Infrastructure-wide continuous profiling
+    digest: fff03ae4595e6b7ded38327492deb58a5a0d9539dc9b553775d0df0904371a62
+    name: parca
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/parca-1.1.1/parca-1.1.1.tgz
+    version: 1.1.1
   - apiVersion: v2
     appVersion: v0.1.0
     created: "2021-10-10T14:06:09.334602297Z"
@@ -367,6 +387,17 @@ entries:
   pyrra:
   - apiVersion: v2
     appVersion: v0.1.0
+    created: "2021-10-10T19:48:15.754955626Z"
+    description: Making SLOs with Prometheus manageable, accessible, and easy to use
+      for everyone!
+    digest: 3c6219938803007d73cce348f29452ebea1f18aee3df9c887e0ef27f0a866c53
+    name: pyrra
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/pyrra-0.1.1/pyrra-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: v0.1.0
     created: "2021-10-10T19:05:29.487926885Z"
     description: A Helm chart for Kubernetes
     digest: d7b9a9430dad3efbc84b17f1a8856d358c56889f58d3e6993d10a25a94be47ba
@@ -375,4 +406,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/pyrra-0.1.0/pyrra-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-10T19:05:29.488051285Z"
+generated: "2021-10-10T19:48:15.755025127Z"
