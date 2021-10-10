@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "pyrra.fullname" . }}
+  labels:
+    {{- include "pyrra.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: internal
+      port: 9443
+    - name: api
+      port: 9444
+    - name: http
+      port: {{ .Values.service.port }}
+  selector:
+    {{- include "pyrra.selectorLabels" . | nindent 4 }}
