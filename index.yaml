@@ -297,6 +297,16 @@ entries:
   parca:
   - apiVersion: v2
     appVersion: v0.1.0
+    created: "2021-10-11T12:59:09.513678071Z"
+    description: Open Source Infrastructure-wide continuous profiling
+    digest: e1e7f27cc4b952551104685395b8ecc0b88e64b318dd23a9c9a1f49af763b5a3
+    name: parca
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/parca-1.1.2/parca-1.1.2.tgz
+    version: 1.1.2
+  - apiVersion: v2
+    appVersion: v0.1.0
     created: "2021-10-10T19:48:15.612574501Z"
     description: Open Source Infrastructure-wide continuous profiling
     digest: fff03ae4595e6b7ded38327492deb58a5a0d9539dc9b553775d0df0904371a62
@@ -406,4 +416,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/pyrra-0.1.0/pyrra-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-10T19:48:15.755025127Z"
+generated: "2021-10-11T12:59:09.513799472Z"
