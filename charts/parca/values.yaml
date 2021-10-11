@@ -36,6 +36,7 @@ agent:
   serviceMonitor:
     # -- enables prometheus servicemonitor for agent
     enabled: false
+    jobLabel: parca-agent
   # -- node selector for scheduling agent pods
   nodeSelector: {}
   # -- node tolerations for scheduling agent pods
@@ -75,6 +76,7 @@ server:
   serviceMonitor:
     # -- enables servicemonitor for server monitoring
     enabled: false
+    jobLabel: parca-server
   # -- node selector for scheduling server pod
   nodeSelector: {}
   # -- tolerations for scheduling server pod

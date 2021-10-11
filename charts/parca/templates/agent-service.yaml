@@ -13,8 +13,6 @@ spec:
       protocol: TCP
       name: http
   clusterIP: None
-  clusterIPs:
-    - None
   type: ClusterIP
   selector:
     {{- include "parca.selectorLabels.agent" . | nindent 6 }}
