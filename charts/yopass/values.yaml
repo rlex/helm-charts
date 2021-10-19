@@ -68,6 +68,13 @@ resources:
     cpu: 100m
     memory: 128Mi
 
+metrics:
+  # -- enables yopass metrics
+  enabled: false
+  serviceMonitor:
+    # -- enables yopass serviceMonitor. Requires metrics enabled
+    enabled: false
+
 autoscaling:
   enabled: false
   minReplicas: 1
