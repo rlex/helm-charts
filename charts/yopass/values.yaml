@@ -1,0 +1,93 @@
+# Default values for yopass.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# -- specifies pull secrets for image repository
+imagePullSecrets: []
+# -- overrides chart name
+nameOverride: ""
+# -- Overrides helm-generated chart fullname
+fullnameOverride: ""
+
+replicaCount: 1
+
+image:
+  repository: jhaals/yopass
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+serviceAccount:
+  # -- Specifies whether a service account should be created
+  create: true
+  # -- Annotations to add to the service account
+  annotations: {}
+  # -- The name of the service account to use.
+  # -- If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# -- additional annotations for server pod
+podAnnotations: {}
+# -- additional security context for server pod
+podSecurityContext: {}
+# -- additional security context for server
+securityContext: {}
+
+service:
+  # -- service type
+  type: ClusterIP
+  # -- service port
+  port: 1337
+
+
+ingress:
+  # -- enables ingress
+  enabled: false
+  # -- specifies ingress class name (ie nginx)
+  className: ""
+  # -- additional annotations for ingress
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+# -- resource limits and requests
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+# -- node selector for scheduling pods
+nodeSelector: {}
+# -- tolerations for scheduling pods
+tolerations: []
+
+# -- affinity for scheduling pods
+affinity: {}
+
+# -- Allows customization of memcached chart dependency. See bitnami/memcached chart for details. ServiceMonitor is provided as an example
+memcached:
+  metrics:
+    # -- enable memcached-exporter sidecard
+    enabled: false
+    serviceMonitor:
+      # -- enable ServiceMonitor
+      enabled: false
