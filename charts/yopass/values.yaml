@@ -9,12 +9,15 @@ nameOverride: ""
 # -- Overrides helm-generated chart fullname
 fullnameOverride: ""
 
+# -- Amount of replicas to run
 replicaCount: 1
 
 image:
+  # -- Image repository
   repository: jhaals/yopass
+  # -- Image pull policy
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
 serviceAccount:
@@ -22,15 +25,14 @@ serviceAccount:
   create: true
   # -- Annotations to add to the service account
   annotations: {}
-  # -- The name of the service account to use.
-  # -- If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template
   name: ""
 
-# -- additional annotations for server pod
+# -- annotations for pod
 podAnnotations: {}
-# -- additional security context for server pod
+# -- security context for pod
 podSecurityContext: {}
-# -- additional security context for server
+# -- security context for pod
 securityContext: {}
 
 service:
@@ -90,8 +92,22 @@ tolerations: []
 # -- affinity for scheduling pods
 affinity: {}
 
-# -- Allows customization of memcached chart dependency. See bitnami/memcached chart for details. ServiceMonitor is provided as an example
+# -- Allows customization of memcached chart dependency. See bitnami/memcached chart for more variables
 memcached:
+  # -- Memcached architecture. Allowed values: standalone or high-availability
+  architecture: standalone
+  persistence:
+    # -- Enable persistence using PVC (Requires architecture: "high-availability")
+    enabled: false
+    # -- PVC Storage Class for Memcached volume
+    storageClass: ""
+    # -- Persistent Volume Claim annotations
+    annotations: {}
+    # -- Persistent Volume Access Mode
+    accessModes:
+      - ReadWriteOnce
+    # -- PVC Storage Request for Memcached volume
+    size: 8Gi
   metrics:
     # -- enable memcached-exporter sidecard
     enabled: false

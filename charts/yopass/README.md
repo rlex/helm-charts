@@ -1,9 +1,15 @@
 # yopass
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 11.1.2](https://img.shields.io/badge/AppVersion-11.1.2-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 11.1.2](https://img.shields.io/badge/AppVersion-11.1.2-informational?style=flat-square)
 
 Secure sharing for secrets, passwords and files  
 Please note that by default this chart does not have any kind of persistence - you will need to configure persistence for memcached subchart.
+
+**Homepage:** <https://github.com/jhaals/yopass>
+
+## Source Code
+
+* <https://github.com/rlex/helm-charts>
 
 ## Requirements
 
@@ -21,9 +27,9 @@ Please note that by default this chart does not have any kind of persistence - y
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | fullnameOverride | string | `""` | Overrides helm-generated chart fullname |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"jhaals/yopass"` |  |
-| image.tag | string | `""` |  |
+| image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
+| image.repository | string | `"jhaals/yopass"` | Image repository |
+| image.tag | string | `""` | Overrides the image tag whose default is the chart appVersion. |
 | imagePullSecrets | list | `[]` | specifies pull secrets for image repository |
 | ingress.annotations | object | `{}` | additional annotations for ingress |
 | ingress.className | string | `""` | specifies ingress class name (ie nginx) |
@@ -32,21 +38,29 @@ Please note that by default this chart does not have any kind of persistence - y
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
-| memcached | object | `{"metrics":{"enabled":false,"serviceMonitor":{"enabled":false}}}` | Allows customization of memcached chart dependency. See bitnami/memcached chart for details. ServiceMonitor is provided as an example |
+| memcached | object | `{"architecture":"standalone","metrics":{"enabled":false,"serviceMonitor":{"enabled":false}},"persistence":{"accessModes":["ReadWriteOnce"],"annotations":{},"enabled":false,"size":"8Gi","storageClass":""}}` | Allows customization of memcached chart dependency. See bitnami/memcached chart for more variables |
+| memcached.architecture | string | `"standalone"` | Memcached architecture. Allowed values: standalone or high-availability |
 | memcached.metrics.enabled | bool | `false` | enable memcached-exporter sidecard |
 | memcached.metrics.serviceMonitor.enabled | bool | `false` | enable ServiceMonitor |
+| memcached.persistence.accessModes | list | `["ReadWriteOnce"]` | Persistent Volume Access Mode |
+| memcached.persistence.annotations | object | `{}` | Persistent Volume Claim annotations |
+| memcached.persistence.enabled | bool | `false` | Enable persistence using PVC (Requires architecture: "high-availability") |
+| memcached.persistence.size | string | `"8Gi"` | PVC Storage Request for Memcached volume |
+| memcached.persistence.storageClass | string | `""` | PVC Storage Class for Memcached volume |
+| metrics.enabled | bool | `false` | enables yopass metrics |
+| metrics.serviceMonitor.enabled | bool | `false` | enables yopass serviceMonitor. Requires metrics enabled |
 | nameOverride | string | `""` | overrides chart name |
 | nodeSelector | object | `{}` | node selector for scheduling pods |
-| podAnnotations | object | `{}` | additional annotations for server pod |
-| podSecurityContext | object | `{}` | additional security context for server pod |
-| replicaCount | int | `1` |  |
+| podAnnotations | object | `{}` | annotations for pod |
+| podSecurityContext | object | `{}` | security context for pod |
+| replicaCount | int | `1` | Amount of replicas to run |
 | resources | object | `{"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}` | resource limits and requests |
-| securityContext | object | `{}` | additional security context for server |
+| securityContext | object | `{}` | security context for pod |
 | service.port | int | `1337` | service port |
 | service.type | string | `"ClusterIP"` | service type |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
-| serviceAccount.name | string | `""` | The name of the service account to use. -- If not set and create is true, a name is generated using the fullname template |
+| serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` | tolerations for scheduling pods |
 
 ----------------------------------------------
