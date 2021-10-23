@@ -445,6 +445,28 @@ entries:
   yopass:
   - apiVersion: v2
     appVersion: 11.1.2
+    created: "2021-10-23T22:19:17.512607163Z"
+    dependencies:
+    - condition: memcached.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: 5.15.6
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.5.0
+    description: Secure sharing for secrets, passwords and files
+    digest: 4ec2b08543d41728bb6045c8e249740373aec09d2a71303bb3500b815cd3b61d
+    home: https://github.com/jhaals/yopass
+    name: yopass
+    sources:
+    - https://github.com/rlex/helm-charts
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/yopass-0.3.0/yopass-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 11.1.2
     created: "2021-10-19T18:34:33.229421132Z"
     dependencies:
     - alias: memcached
@@ -497,4 +519,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2021-10-23T16:44:41.254498071Z"
+generated: "2021-10-23T22:19:17.512714068Z"
