@@ -34,14 +34,21 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
-            - "--memcached=yopass-memcached:11211"
-            {{- if .Values.metrics.enabled }}
+            - "--max-length={{ .Values.yopass.maxLength }}"
+            - "--database={{ .Values.yopass.database }}"
+            {{- if .Values.yopass.metrics.enabled }}
             - "--metrics-port=4444"
+            {{- end }}
+            {{- if eq .Values.yopass.database "memcached" }}
+            - "--memcached={{ .Values.yopass.memcachedUrl }}"
+            {{- end }}
+            {{- if eq .Values.yopass.database "redis" }}
+            - "--redis={{ .Values.yopass.redisUrl }}"
             {{- end }}
           ports:
             - name: http
               containerPort: 1337
-            {{- if .Values.metrics.enabled }}
+            {{- if .Values.yopass.metrics.enabled }}
             - name: metrics
               containerPort: 4444
             {{- end }}

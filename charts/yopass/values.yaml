@@ -41,7 +41,6 @@ service:
   # -- service port
   port: 1337
 
-
 ingress:
   # -- enables ingress
   enabled: false
@@ -70,12 +69,22 @@ resources:
     cpu: 100m
     memory: 128Mi
 
-metrics:
-  # -- enables yopass metrics
-  enabled: false
-  serviceMonitor:
-    # -- enables yopass serviceMonitor. Requires metrics enabled
+yopass:
+  # -- database backend, memcached or redis
+  database: memcached
+  # -- memcached url. Default assumes default memcached settings
+  memcachedUrl: yopass-memcached:11211
+  # -- redis url. Default assumes default redis settings
+  redisUrl: redis://yopass-redis-master:6379/0
+  # -- max length of secret
+  maxLength: 10000
+  metrics:
+    # -- enables yopass metrics
     enabled: false
+    serviceMonitor:
+      # -- enables yopass serviceMonitor. Requires metrics enabled
+      enabled: false
+
 
 autoscaling:
   enabled: false
@@ -92,8 +101,9 @@ tolerations: []
 # -- affinity for scheduling pods
 affinity: {}
 
-# -- Allows customization of memcached chart dependency. See bitnami/memcached chart for more variables
 memcached:
+  # -- Enables memcached deployment with bitnami/memcached subchart
+  enabled: true
   # -- Memcached architecture. Allowed values: standalone or high-availability
   architecture: standalone
   persistence:
@@ -108,6 +118,34 @@ memcached:
       - ReadWriteOnce
     # -- PVC Storage Request for Memcached volume
     size: 8Gi
+  metrics:
+    # -- enable memcached-exporter sidecard
+    enabled: false
+    serviceMonitor:
+      # -- enable ServiceMonitor
+      enabled: false
+
+redis:
+  # -- Enables redis deployment with bitnami/redis subchart
+  enabled: false
+  # -- Memcached architecture. Allowed values: standalone or high-availability
+  architecture: standalone
+  auth:
+    # -- Enable password authentication. Disabled for now.
+    enabled: false
+  master:
+    persistence:
+      # -- Enable persistence using PVC (Requires architecture: "high-availability")
+      enabled: false
+      # -- PVC Storage Class for Memcached volume
+      storageClass: ""
+      # -- Persistent Volume Claim annotations
+      annotations: {}
+      # -- Persistent Volume Access Mode
+      accessModes:
+        - ReadWriteOnce
+      # -- PVC Storage Request for Memcached volume
+      size: 8Gi
   metrics:
     # -- enable memcached-exporter sidecard
     enabled: false

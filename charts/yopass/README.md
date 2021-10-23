@@ -1,11 +1,17 @@
 # yopass
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 11.1.2](https://img.shields.io/badge/AppVersion-11.1.2-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 11.1.2](https://img.shields.io/badge/AppVersion-11.1.2-informational?style=flat-square)
 
-Secure sharing for secrets, passwords and files  
-Please note that by default this chart does not have any kind of persistence - you will need to configure persistence for memcached subchart.
+Secure sharing for secrets, passwords and files
 
 **Homepage:** <https://github.com/jhaals/yopass>
+
+## Usage
+Yopass supports redis and memcached databases. Which one it uses is controlled by yopass.database value  
+By default, it will be deployed with memcached database (managed by bitnami/memcached subchart)  
+If you want to use redis, set redis.enabled to "true', memcached.enabled to "false" and yopass.database to 'redis".  
+You can also use redis or memcached instance not managed by this chart by setting both redis.enabled and memcached.enabled to "false" and using yopass.redisUrl / yopass.memcachedUrl to point to database of your choice  
+You can also customize redis and memcached subcharts by using redis and memcached values provided by bitnami/redis and bitnami/memcached charts.  
 
 ## Source Code
 
@@ -15,7 +21,8 @@ Please note that by default this chart does not have any kind of persistence - y
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | memcached(memcached) | 5.15.6 |
+| https://charts.bitnami.com/bitnami | memcached | 5.15.6 |
+| https://charts.bitnami.com/bitnami | redis | 15.5.0 |
 
 ## Values
 
@@ -38,8 +45,8 @@ Please note that by default this chart does not have any kind of persistence - y
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
-| memcached | object | `{"architecture":"standalone","metrics":{"enabled":false,"serviceMonitor":{"enabled":false}},"persistence":{"accessModes":["ReadWriteOnce"],"annotations":{},"enabled":false,"size":"8Gi","storageClass":""}}` | Allows customization of memcached chart dependency. See bitnami/memcached chart for more variables |
 | memcached.architecture | string | `"standalone"` | Memcached architecture. Allowed values: standalone or high-availability |
+| memcached.enabled | bool | `true` | Enables memcached deployment with bitnami/memcached subchart |
 | memcached.metrics.enabled | bool | `false` | enable memcached-exporter sidecard |
 | memcached.metrics.serviceMonitor.enabled | bool | `false` | enable ServiceMonitor |
 | memcached.persistence.accessModes | list | `["ReadWriteOnce"]` | Persistent Volume Access Mode |
@@ -47,12 +54,20 @@ Please note that by default this chart does not have any kind of persistence - y
 | memcached.persistence.enabled | bool | `false` | Enable persistence using PVC (Requires architecture: "high-availability") |
 | memcached.persistence.size | string | `"8Gi"` | PVC Storage Request for Memcached volume |
 | memcached.persistence.storageClass | string | `""` | PVC Storage Class for Memcached volume |
-| metrics.enabled | bool | `false` | enables yopass metrics |
-| metrics.serviceMonitor.enabled | bool | `false` | enables yopass serviceMonitor. Requires metrics enabled |
 | nameOverride | string | `""` | overrides chart name |
 | nodeSelector | object | `{}` | node selector for scheduling pods |
 | podAnnotations | object | `{}` | annotations for pod |
 | podSecurityContext | object | `{}` | security context for pod |
+| redis.architecture | string | `"standalone"` | Memcached architecture. Allowed values: standalone or high-availability |
+| redis.auth.enabled | bool | `false` | Enable password authentication. Disabled for now. |
+| redis.enabled | bool | `false` | Enables redis deployment with bitnami/redis subchart |
+| redis.master.persistence.accessModes | list | `["ReadWriteOnce"]` | Persistent Volume Access Mode |
+| redis.master.persistence.annotations | object | `{}` | Persistent Volume Claim annotations |
+| redis.master.persistence.enabled | bool | `false` | Enable persistence using PVC (Requires architecture: "high-availability") |
+| redis.master.persistence.size | string | `"8Gi"` | PVC Storage Request for Memcached volume |
+| redis.master.persistence.storageClass | string | `""` | PVC Storage Class for Memcached volume |
+| redis.metrics.enabled | bool | `false` | enable memcached-exporter sidecard |
+| redis.metrics.serviceMonitor.enabled | bool | `false` | enable ServiceMonitor |
 | replicaCount | int | `1` | Amount of replicas to run |
 | resources | object | `{"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}` | resource limits and requests |
 | securityContext | object | `{}` | security context for pod |
@@ -62,6 +77,12 @@ Please note that by default this chart does not have any kind of persistence - y
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` | tolerations for scheduling pods |
+| yopass.database | string | `"memcached"` | database backend, memcached or redis |
+| yopass.maxLength | int | `10000` | max length of secret |
+| yopass.memcachedUrl | string | `"yopass-memcached:11211"` | memcached url. Default assumes default memcached settings |
+| yopass.metrics.enabled | bool | `false` | enables yopass metrics |
+| yopass.metrics.serviceMonitor.enabled | bool | `false` | enables yopass serviceMonitor. Requires metrics enabled |
+| yopass.redisUrl | string | `"redis://yopass-redis-master:6379/0"` | redis url. Default assumes default redis settings |
 
 ----------------------------------------------
 Autogenerated from chart metadata using [helm-docs v1.5.0](https://github.com/norwoodj/helm-docs/releases/v1.5.0)
