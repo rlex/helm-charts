@@ -1,0 +1,87 @@
+# Default values for cloudflare-tunnel.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# -- Amount of replicas. Be aware that >1 replicas requires paid cloudflare loadbalancer subscription
+replicaCount: 1
+
+image:
+  # -- overrides default image
+  repository: cloudflare/cloudflared
+  pullPolicy: IfNotPresent
+  # -- Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+cloudflared:
+  # By default, the credentials file will be created under ~/.cloudflared/<tunnel ID>.json
+  # when you run `cloudflared tunnel create`. You can move it into a secret by using:
+  # kubectl create secret generic tunnel-credentials \
+  # --from-file=credentials.json=/Users/user/.cloudflared/<tunnel ID>.json
+  # -- name of secret with stored tunnel credentials
+  tunnelSecret: tunnel-credentials
+  # -- tunnel UUID. Tunnel name will not work. Get it with 'cloudflared tunnel list'
+  tunnel:
+  # The `tunnels` block tells cloudflared which local service to route incoming
+  # requests to. For more about ingress rules, see
+  # https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/ingress
+  #
+  # Remember, these rules route traffic from cloudflared to a local service. To route traffic
+  # from the internet to cloudflared, run `cloudflared tunnel route dns <tunnel> <hostname>`.
+  # E.g. `cloudflared tunnel route dns example-tunnel tunnel.example.com`.
+  # -- Yaml wth ingress rules
+  ingress:
+    - hostname: hello.example.com
+      service: hello_world
+    - service: http_status:404
+  serviceMonitor:
+    enabled: false
+
+serviceAccount:
+  # -- Specifies whether a service account should be created
+  create: true
+  # -- Annotations to add to the service account
+  annotations: {}
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# -- pod annotations
+podAnnotations: {}
+
+# -- pod security context
+podSecurityContext: {}
+  # fsGroup: 2000
+
+# -- security context
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+# -- pod limits/requests
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# -- node selector rules
+nodeSelector: {}
+
+# -- tolerations rules
+tolerations: []
+
+# -- affinity rules
+affinity: {}

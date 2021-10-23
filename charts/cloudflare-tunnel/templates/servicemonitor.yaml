@@ -1,0 +1,29 @@
+{{- if .Values.cloudflared.serviceMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ template "cloudflare-tunnel.fullname" . }}
+  labels:
+    {{- include "cloudflare-tunnel.labels" . | nindent 4 }}
+spec:
+  jobLabel: {{ .Values.cloudflared.serviceMonitor.jobLabel | quote }}
+  selector:
+    matchLabels:
+      {{- include "cloudflare-tunnel.selectorLabels" . | nindent 6 }}
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
+  endpoints:
+  - port: metrics
+    {{- if .Values.cloudflared.serviceMonitor.interval }}
+    interval: {{ .Values.cloudflared.serviceMonitor.interval }}
+    {{- end }}
+    {{- if .Values.cloudflared.serviceMonitor.metricRelabelings }}
+    metricRelabelings:
+    {{ toYaml .Values.cloudflared.serviceMonitor.metricRelabelings | indent 4 }}
+    {{- end }}
+    {{- if .Values.cloudflared.serviceMonitor.relabelings }}
+    relabelings:
+    {{ toYaml .Values.cloudflared.serviceMonitor.relabelings | indent 4 }}
+    {{- end }}
+{{- end }}
