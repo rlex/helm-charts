@@ -6,12 +6,6 @@ metadata:
     {{- include "parca.labels.server" . | nindent 4 }}
 data:
   parca.yaml: |-
-    "debug_info":
-      "bucket":
-        "config":
-          "directory": "./tmp"
-        "type": "FILESYSTEM"
-      "cache":
-        "config":
-          "directory": "./tmp"
-        "type": "FILESYSTEM"
+{{ toYaml .Values.server.config | indent 4 }}
+    scrape_configs:
+{{ toYaml .Values.server.scrapeConfigs | indent 4 }}

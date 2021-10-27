@@ -1,9 +1,8 @@
-{{- if .Values.agent.enabled -}}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   labels:
-    {{- include "parca.labels.agent" . | nindent 4 }}
+    {{- include "parca.labels" . | nindent 4 }}
   name: {{ include "parca.serviceAccountName" . }}
 rules:
 - apiGroups:
@@ -19,4 +18,3 @@ rules:
   - nodes
   verbs:
   - get
-{{- end }}
