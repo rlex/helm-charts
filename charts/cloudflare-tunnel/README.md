@@ -51,8 +51,6 @@ Additionally, it will configure serviceMonitor for prometheus-operator. In case 
 
 For more settings of ingresses please consult [https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/configuration-file/ingress](official cloudflare docs)
 
-**Please also note that pod will not be reloaded after you apply changes to config. You will either need to reload pod manually or use something like [https://github.com/stakater/Reloader](Stakater reloader) if you want it to work automagically.**
-
 ## Values
 
 | Key | Type | Default | Description |
