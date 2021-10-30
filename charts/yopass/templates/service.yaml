@@ -11,7 +11,7 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-    {{- if .Values.metrics.enabled }}
+    {{- if .Values.yopass.metrics.enabled }}
     - port: 4444
       targetPort: metrics
       protocol: TCP

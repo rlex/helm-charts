@@ -1,5 +1,5 @@
-{{- if .Values.metrics.serviceMonitor.enabled }}
-{{- if .Values.metrics.enabled }}
+{{- if .Values.yopass.metrics.serviceMonitor.enabled }}
+{{- if .Values.yopass.metrics.enabled }}
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -7,7 +7,7 @@ metadata:
   labels:
     {{- include "yopass.labels" . | nindent 4 }}
 spec:
-  jobLabel: {{ .Values.metrics.serviceMonitor.jobLabel | quote }}
+  jobLabel: {{ .Values.yopass.metrics.serviceMonitor.jobLabel | quote }}
   selector:
     matchLabels:
       {{- include "yopass.selectorLabels" . | nindent 6 }}
@@ -16,16 +16,16 @@ spec:
     - {{ .Release.Namespace }}
   endpoints:
   - port: metrics
-    {{- if .Values.metrics.serviceMonitor.interval }}
-    interval: {{ .Values.metrics.serviceMonitor.interval }}
+    {{- if .Values.yopass.metrics.serviceMonitor.interval }}
+    interval: {{ .Values.yopass.metrics.serviceMonitor.interval }}
     {{- end }}
-    {{- if .Values.metrics.serviceMonitor.metricRelabelings }}
+    {{- if .Values.yopass.metrics.serviceMonitor.metricRelabelings }}
     metricRelabelings:
-    {{ toYaml .Values.metrics.serviceMonitor.metricRelabelings | indent 4 }}
+    {{ toYaml .Values.yopass.metrics.serviceMonitor.metricRelabelings | indent 4 }}
     {{- end }}
-    {{- if .Values.metrics.serviceMonitor.relabelings }}
+    {{- if .Values.yopass.metrics.serviceMonitor.relabelings }}
     relabelings:
-    {{ toYaml .Values.metrics.serviceMonitor.relabelings | indent 4 }}
+    {{ toYaml .Values.yopass.metrics.serviceMonitor.relabelings | indent 4 }}
     {{- end }}
 {{- end }}
 {{- end }}
