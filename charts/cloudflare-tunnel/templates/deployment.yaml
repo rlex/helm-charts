@@ -11,10 +11,10 @@ spec:
       {{- include "cloudflare-tunnel.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- with .Values.podAnnotations }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
         checksum/config: {{ tpl (toYaml .Values.cloudflared) . | sha256sum }}
       labels:
         {{- include "cloudflare-tunnel.selectorLabels" . | nindent 8 }}
