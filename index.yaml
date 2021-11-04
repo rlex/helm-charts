@@ -56,6 +56,18 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/cloudflare-tunnel-0.1.0/cloudflare-tunnel-0.1.0.tgz
     version: 0.1.0
+  flame:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-11-04T20:22:15.285839497Z"
+    description: Flame is self-hosted startpage for your server. Easily manage your
+      apps and bookmarks with built-in editors.
+    digest: 14ee85d2eec13be1ecd0ab1ac793918be9ed49861bac6df190a9e5d0dfd87c85
+    name: flame
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/flame-0.1.0/flame-0.1.0.tgz
+    version: 0.1.0
   freetakserver:
   - apiVersion: v1
     appVersion: 1.2.5
@@ -627,4 +639,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2021-11-04T16:08:44.632789883Z"
+generated: "2021-11-04T20:22:15.285970001Z"
