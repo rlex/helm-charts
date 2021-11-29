@@ -1,6 +1,6 @@
 # cloudflare-tunnel
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2021.4.0](https://img.shields.io/badge/AppVersion-2021.4.0-informational?style=flat-square)
+![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2021.11.0](https://img.shields.io/badge/AppVersion-2021.11.0-informational?style=flat-square)
 
 ### Usage
 
@@ -49,7 +49,7 @@ This config will configure cloudflared to use tunnel with id 70ad5745-dbdd-427a-
 
 Additionally, it will configure serviceMonitor for prometheus-operator. In case you do not use operator, and want to use annotations, metrics are on port 2000 of pod.
 
-For more settings of ingresses please consult [https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/configuration-file/ingress](official cloudflare docs)
+For more settings of ingresses please consult [official cloudflare docs](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/configuration-file/ingress)
 
 ## Values
 

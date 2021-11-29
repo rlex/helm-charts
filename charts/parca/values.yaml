@@ -14,7 +14,7 @@ agent:
     # -- Overrides pullpolicy
     pullPolicy: IfNotPresent
     # -- Overrides the image tag
-    tag: "v0.2.0"
+    tag: "v0.3.0"
   # -- Path to host docker/containerd/crio socket
   socketPath: /run/containerd/containerd.sock
   # -- Agent log level
@@ -55,7 +55,7 @@ server:
     # -- Overrides pull policy for server
     pullPolicy: IfNotPresent
     # -- Overrides the image tag for server
-    tag: "v0.3.0"
+    tag: "v0.5.0"
   # -- Sets retention period for server TSDB
   retentionTime: 6h
   # -- logging level of parca server
