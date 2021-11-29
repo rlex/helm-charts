@@ -2,6 +2,17 @@ apiVersion: v1
 entries:
   cloudflare-tunnel:
   - apiVersion: v2
+    appVersion: 2021.11.0
+    created: "2021-11-29T18:40:11.378674174Z"
+    description: Manage and use cloudflare tunnels (also known as argo tunnels) on
+      k8s cluster
+    digest: 4748f5aad636b63ad38733831173662378cfd53d953be3b646c9e3a846ba352e
+    name: cloudflare-tunnel
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/cloudflare-tunnel-0.1.5/cloudflare-tunnel-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
     appVersion: 2021.10.5
     created: "2021-11-04T16:08:44.632586283Z"
     description: Manage and use cloudflare tunnels (also known as argo tunnels) on
@@ -364,6 +375,20 @@ entries:
     version: 0.1.0
   parca:
   - apiVersion: v2
+    appVersion: v0.5.0
+    created: "2021-11-29T18:40:11.599166585Z"
+    description: Open Source Infrastructure-wide continuous profiling
+    digest: e3ae84755db389482ce8cf450b1b5af5d54ef0719bc4a6be31b24acb56cdad30
+    home: https://parca.dev/
+    icon: https://avatars.githubusercontent.com/u/86306284?s=200&v=4
+    name: parca
+    sources:
+    - https://github.com/rlex/helm-charts
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/parca-1.2.3/parca-1.2.3.tgz
+    version: 1.2.3
+  - apiVersion: v2
     appVersion: v0.3.0
     created: "2021-10-29T22:26:32.885596389Z"
     description: Open Source Infrastructure-wide continuous profiling
@@ -520,6 +545,17 @@ entries:
     version: 0.0.2
   pyrra:
   - apiVersion: v2
+    appVersion: v0.2.0
+    created: "2021-11-29T18:40:11.840118738Z"
+    description: Making SLOs with Prometheus manageable, accessible, and easy to use
+      for everyone!
+    digest: de5495b003185cda92560239238150ee54ce80e06fe725d6a25aa51bcc09c91b
+    name: pyrra
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/pyrra-0.1.2/pyrra-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: v0.1.0
     created: "2021-10-10T19:48:15.754955626Z"
     description: Making SLOs with Prometheus manageable, accessible, and easy to use
@@ -639,4 +675,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2021-11-04T20:22:15.285970001Z"
+generated: "2021-11-29T18:40:11.840380435Z"
