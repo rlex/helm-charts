@@ -45,6 +45,16 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  {{- if .Values.flame.existingSecret }}
+                  name: {{ .Values.flame.existingSecret }}
+                  {{- else }}
+                  name: {{ .Release.Name }}-secret
+                  {{- end }}
+                  key: password
           volumeMounts:
             - name: data
               mountPath: /app/data
