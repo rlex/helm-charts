@@ -33,7 +33,7 @@ spec:
         {{- end }}
         args:
         - --update-interval-minutes={{ .Values.updateInterval }}
-        {{- if .Values.addtionalCostPerCluster }}
+        {{- if .Values.additionalCostPerCluster }}
         - --additional-cost-per-cluster={{ .Values.additionalCostPerCluster }}
         {{- end }}
         {{- if .Values.customLinks.enabled }}
