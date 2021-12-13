@@ -69,6 +69,17 @@ entries:
     version: 0.1.0
   flame:
   - apiVersion: v2
+    appVersion: 2.1.1
+    created: "2021-12-13T18:18:34.681121166Z"
+    description: Flame is self-hosted startpage for your server. Easily manage your
+      apps and bookmarks with built-in editors.
+    digest: d413cd676fbe3ffb1c33a0361da39796c37c83fd16cde771206ee1e7942dc834
+    name: flame
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/flame-0.3.0/flame-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     appVersion: 2.1.0
     created: "2021-11-30T17:43:35.575747764Z"
     description: Flame is self-hosted startpage for your server. Easily manage your
@@ -686,4 +697,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2021-11-30T17:43:35.575934074Z"
+generated: "2021-12-13T18:18:34.681242868Z"
