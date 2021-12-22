@@ -57,34 +57,24 @@ spec:
           securityContext:
             {{- toYaml .Values.agent.securityContext | nindent 12 }}
           volumeMounts:
-          - mountPath: /host/root
-            name: root
-            readOnly: true
-          - mountPath: /host/proc
-            name: proc
-            readOnly: true
-          - mountPath: /run
-            name: run
-          - mountPath: /lib/modules
-            name: modules
-          - mountPath: /sys/kernel/debug
-            name: debugfs
-          - mountPath: /sys/fs/cgroup
-            name: cgroup
-          - mountPath: /sys/fs/bpf
-            name: bpffs
-          - mountPath: /etc/localtime
-            name: localtime
+        - mountPath: /tmp
+          name: tmp
+        - mountPath: /run
+          name: run
+        - mountPath: /lib/modules
+          name: modules
+        - mountPath: /sys/kernel/debug
+          name: debugfs
+        - mountPath: /sys/fs/cgroup
+          name: cgroup
+        - mountPath: /sys/fs/bpf
+          name: bpffs
           resources:
             {{- toYaml .Values.agent.resources | nindent 12 }}
       hostPID: true
       volumes:
-      - hostPath:
-          path: /
-        name: root
-      - hostPath:
-          path: /proc
-        name: proc
+      - emptyDir: {}
+        name: tmp
       - hostPath:
           path: /run
         name: run
@@ -100,9 +90,6 @@ spec:
       - hostPath:
           path: /sys/kernel/debug
         name: debugfs
-      - hostPath:
-          path: /etc/localtime
-        name: localtime
       serviceAccountName: {{ include "parca.serviceAccountName" . }}
       {{- with .Values.agent.tolerations }}
       tolerations:
