@@ -57,18 +57,18 @@ spec:
           securityContext:
             {{- toYaml .Values.agent.securityContext | nindent 12 }}
           volumeMounts:
-        - mountPath: /tmp
-          name: tmp
-        - mountPath: /run
-          name: run
-        - mountPath: /lib/modules
-          name: modules
-        - mountPath: /sys/kernel/debug
-          name: debugfs
-        - mountPath: /sys/fs/cgroup
-          name: cgroup
-        - mountPath: /sys/fs/bpf
-          name: bpffs
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /run
+            name: run
+          - mountPath: /lib/modules
+            name: modules
+          - mountPath: /sys/kernel/debug
+            name: debugfs
+          - mountPath: /sys/fs/cgroup
+            name: cgroup
+          - mountPath: /sys/fs/bpf
+            name: bpffs
           resources:
             {{- toYaml .Values.agent.resources | nindent 12 }}
       hostPID: true
