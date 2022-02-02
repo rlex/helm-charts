@@ -37,7 +37,7 @@ spec:
             - --log-level={{ .Values.agent.logLevel }}
             - --node=$(NODE_NAME)
             - --kubernetes
-            - --store-address=parca-server.{{ .Release.Namespace }}.svc.cluster.local:7070
+            - --store-address={{ include "parca.fullname" . }}-server.{{ .Release.Namespace }}.svc.cluster.local:7070
             - --insecure
             - --insecure-skip-verify
             - --temp-dir=/tmp

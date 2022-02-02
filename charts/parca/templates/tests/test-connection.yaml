@@ -8,12 +8,12 @@ metadata:
     "helm.sh/hook": test
 spec:
   containers:
-    - name: wget-agent
-      image: busybox
-      command: ['wget']
-      args: ['{{ include "parca.fullname" . }}:{{ .Values.agent.service.port }}']
     - name: wget-server
       image: busybox
       command: ['wget']
-      args: ['{{ include "parca.fullname" . }}:{{ .Values.server.service.port }}']
+      args: ['{{ include "parca.fullname" . }}-server:{{ .Values.server.service.port }}']
+    - name: wget-agent
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "parca.fullname" . }}-agent:{{ .Values.agent.service.port }}']
   restartPolicy: Never
