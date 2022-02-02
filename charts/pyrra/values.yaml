@@ -76,4 +76,3 @@ tolerations: {}
 serviceMonitor:
   # -- enables servicemonitor for server monitoring
   enabled: false
-
