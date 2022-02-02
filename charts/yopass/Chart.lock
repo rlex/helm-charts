@@ -1,7 +1,7 @@
 dependencies:
 - name: memcached
   repository: https://charts.bitnami.com/bitnami
-  version: 5.15.6
+  version: 6.0.2
 - name: redis
   repository: https://charts.bitnami.com/bitnami
   version: 16.3.0
