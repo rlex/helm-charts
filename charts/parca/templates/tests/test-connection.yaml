@@ -11,9 +11,9 @@ spec:
     - name: wget-agent
       image: busybox
       command: ['wget']
-      args: ['{{ include "parca.fullname" . }}:{{ .Values.agent.service.port }}']
+      args: ['{{ include "parca.fullname" . }}-server:{{ .Values.agent.service.port }}']
     - name: wget-server
       image: busybox
       command: ['wget']
-      args: ['{{ include "parca.fullname" . }}:{{ .Values.server.service.port }}']
+      args: ['{{ include "parca.fullname" . }}-agent:{{ .Values.server.service.port }}']
   restartPolicy: Never
