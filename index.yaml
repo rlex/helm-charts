@@ -408,6 +408,20 @@ entries:
     version: 0.1.0
   parca:
   - apiVersion: v2
+    appVersion: v0.7.1
+    created: "2022-02-02T20:26:37.665860894Z"
+    description: Open Source Infrastructure-wide continuous profiling
+    digest: b14d073af5bf70677b7699397debf31bd258d5379ee067be2b0edf97df665d78
+    home: https://parca.dev/
+    icon: https://avatars.githubusercontent.com/u/86306284?s=200&v=4
+    name: parca
+    sources:
+    - https://github.com/rlex/helm-charts
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/parca-1.4.0/parca-1.4.0.tgz
+    version: 1.4.0
+  - apiVersion: v2
     appVersion: v0.6.1
     created: "2021-12-22T18:14:19.034975334Z"
     description: Open Source Infrastructure-wide continuous profiling
@@ -639,6 +653,28 @@ entries:
     version: 0.1.0
   yopass:
   - apiVersion: v2
+    appVersion: 11.4.1
+    created: "2022-02-02T20:26:37.836469952Z"
+    dependencies:
+    - condition: memcached.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.0.2
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.3.0
+    description: Secure sharing for secrets, passwords and files
+    digest: c67a543844678ed0cc26439954743d9812ac8cc41e3bb3a84f225e61218b2962
+    home: https://github.com/jhaals/yopass
+    name: yopass
+    sources:
+    - https://github.com/rlex/helm-charts
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/yopass-0.4.0/yopass-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
     appVersion: 11.1.2
     created: "2021-10-30T17:37:16.903825636Z"
     dependencies:
@@ -736,4 +772,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2021-12-22T18:14:19.035139536Z"
+generated: "2022-02-02T20:26:37.836618854Z"
