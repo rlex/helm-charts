@@ -33,6 +33,6 @@ dependencies:
     repository: "https://charts.bitnami.com/bitnami"
     condition: memcached.enabled
   - name: redis
-    version: "15.5.0"
+    version: "15.7.6"
     repository: "https://charts.bitnami.com/bitnami"
     condition: redis.enabled
