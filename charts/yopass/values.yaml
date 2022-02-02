@@ -147,7 +147,7 @@ redis:
       # -- PVC Storage Request for Memcached volume
       size: 8Gi
   metrics:
-    # -- enable memcached-exporter sidecard
+    # -- enable memcached-exporter sidecar
     enabled: false
     serviceMonitor:
       # -- enable ServiceMonitor
