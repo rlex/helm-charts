@@ -1,0 +1,1 @@
+This service does not expose services, ingresses or liveness checks. Check container logs to make sure it works.

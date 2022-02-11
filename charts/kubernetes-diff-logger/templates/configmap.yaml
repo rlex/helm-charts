@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "kubernetes-diff-logger.fullname" . }}
+  labels:
+    {{- include "kubernetes-diff-logger.labels" . | nindent 4 }}
+data:
+  config.yml: |
+    differs:
+    - nameFilter: "*"
+      type: "deployment"
+    - nameFilter: "*"
+      type: "statefulset"
+    - nameFilter: "*"
+      type: "daemonset"
+    - nameFilter: "*"
+      type: "cronjob"
