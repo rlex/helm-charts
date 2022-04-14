@@ -421,6 +421,20 @@ entries:
   parca:
   - apiVersion: v2
     appVersion: v0.10.0
+    created: "2022-04-14T10:43:55.531919947Z"
+    description: Open Source Infrastructure-wide continuous profiling
+    digest: c1e25182e217ff243cdf4105f39ce659a4e6fc3a78ac4172c8d8d52f13a66181
+    home: https://parca.dev/
+    icon: https://avatars.githubusercontent.com/u/86306284?s=200&v=4
+    name: parca
+    sources:
+    - https://github.com/rlex/helm-charts
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/parca-1.5.1/parca-1.5.1.tgz
+    version: 1.5.1
+  - apiVersion: v2
+    appVersion: v0.10.0
     created: "2022-04-13T20:06:49.841365601Z"
     description: Open Source Infrastructure-wide continuous profiling
     digest: d5e5347c7270bed082e926ae8c0a95ed89192c6d720b7bfd44341aaf060d20c0
@@ -892,4 +906,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-04-13T20:06:49.841992125Z"
+generated: "2022-04-14T10:43:55.532389344Z"
