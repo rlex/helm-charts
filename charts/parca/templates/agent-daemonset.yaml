@@ -54,8 +54,6 @@ spec:
           - containerPort: 7071
             hostPort: 7071
             name: http
-          securityContext:
-            {{- toYaml .Values.agent.securityContext | nindent 12 }}
           volumeMounts:
           - mountPath: /tmp
             name: tmp
