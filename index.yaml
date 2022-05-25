@@ -703,6 +703,17 @@ entries:
   pyrra:
   - apiVersion: v2
     appVersion: v0.3.3
+    created: "2022-05-25T18:36:00.430396389Z"
+    description: Making SLOs with Prometheus manageable, accessible, and easy to use
+      for everyone!
+    digest: 0a0d2cc03a548bab839dde9ef22086666a02b2de36d05fec4093c724b9361016
+    name: pyrra
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/pyrra-0.1.6/pyrra-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: v0.3.3
     created: "2022-02-10T21:17:08.879518235Z"
     description: Making SLOs with Prometheus manageable, accessible, and easy to use
       for everyone!
@@ -920,4 +931,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-04-15T11:14:27.403280475Z"
+generated: "2022-05-25T18:36:00.430670491Z"
