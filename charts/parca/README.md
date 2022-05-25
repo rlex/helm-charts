@@ -1,7 +1,5 @@
 # parca
 
-![Version: 1.5.0](https://img.shields.io/badge/Version-1.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.10.0](https://img.shields.io/badge/AppVersion-v0.10.0-informational?style=flat-square)
-
 Open Source Infrastructure-wide continuous profiling
 
 **Homepage:** <https://parca.dev/>
