@@ -420,6 +420,20 @@ entries:
     version: 0.1.0
   parca:
   - apiVersion: v2
+    appVersion: v0.11.1
+    created: "2022-05-25T18:55:44.87102713Z"
+    description: Open Source Infrastructure-wide continuous profiling
+    digest: 58cc034ed202ef49700e02458ca9df920ede6a3d68d5e9fe6572fcb8afc6c680
+    home: https://parca.dev/
+    icon: https://avatars.githubusercontent.com/u/86306284?s=200&v=4
+    name: parca
+    sources:
+    - https://github.com/rlex/helm-charts
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/parca-1.6.0/parca-1.6.0.tgz
+    version: 1.6.0
+  - apiVersion: v2
     appVersion: v0.10.0
     created: "2022-04-15T11:14:27.402759575Z"
     description: Open Source Infrastructure-wide continuous profiling
@@ -702,6 +716,17 @@ entries:
     version: 0.0.2
   pyrra:
   - apiVersion: v2
+    appVersion: v0.4.0
+    created: "2022-05-25T18:55:44.998165076Z"
+    description: Making SLOs with Prometheus manageable, accessible, and easy to use
+      for everyone!
+    digest: d84ddfb4e284c382f3a00e75bce9924d4a0e192fda6aef647b428e4c6677a760
+    name: pyrra
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/pyrra-0.2.0/pyrra-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: v0.3.3
     created: "2022-05-25T18:36:00.430396389Z"
     description: Making SLOs with Prometheus manageable, accessible, and easy to use
@@ -931,4 +956,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-05-25T18:36:00.430670491Z"
+generated: "2022-05-25T18:55:44.998518778Z"
