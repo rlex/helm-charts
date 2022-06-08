@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: {{ .Values.deploymentKind }}
+metadata:
+  name: {{ include "hcloud-fip-controller.fullname" . }}
+  labels:
+    {{- include "hcloud-fip-controller.labels" . | nindent 4 }}
+spec:
+{{- if eq .Values.deploymentKind "Deployment" }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      {{- include "hcloud-fip-controller.selectorLabels" . | nindent 6 }}
+{{- if eq .Values.deploymentKind "Deployment" }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+{{- end }}
+  template:
+    metadata:
+      labels:
+        {{- include "hcloud-fip-controller.selectorLabels" . | nindent 8 }}
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      serviceAccountName: {{ include "hcloud-fip-controller.serviceAccountName" . }}
+      volumes:
+        - name: config
+          configMap:
+            name: {{ include "hcloud-fip-controller.configMapName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          envFrom:
+            - secretRef:
+                name: {{ include "hcloud-fip-controller.envSecretName" . }}
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}

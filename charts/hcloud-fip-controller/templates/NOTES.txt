@@ -1,0 +1,11 @@
+hcloud-fip-controller is now running in the cluster.
+{{- if .Values.configInline }}
+WARNING: you specified a ConfigMap that isn't managed by
+Helm. hcloud-fip-controller will not start correctly until you have
+added the ConfigMap {{ .Values.existingConfigMap }} to your cluster.
+{{- end }}
+{{- if .Values.secretInline }}
+WARNING: you specified a Secret that isn't managed by
+Helm. hcloud-fip-controller will not start correctly until you have
+added the secret {{ .Values.existingEnvSecret }} to your cluster.
+{{- end }}
