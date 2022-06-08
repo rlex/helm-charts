@@ -330,6 +330,18 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/freetakserver-1.0.1/freetakserver-1.0.1.tgz
     version: 1.0.1
+  hcloud-fip-controller:
+  - apiVersion: v2
+    appVersion: 0.4.1
+    created: "2022-06-08T17:06:39.958129872Z"
+    description: hcloud-fip-controller is a small controller, to handle floating IP
+      management in a kubernetes cluster on hetzner cloud virtual machines.
+    digest: 72d4507195f08e3b2bee52b8bfe10cd4c248834e6b505de8928d5d2c11b8226f
+    name: hcloud-fip-controller
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/hcloud-fip-controller-0.2.3/hcloud-fip-controller-0.2.3.tgz
+    version: 0.2.3
   kube-resource-report:
   - apiVersion: v1
     appVersion: 21.10.0
@@ -956,4 +968,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-05-25T18:55:44.998518778Z"
+generated: "2022-06-08T17:06:39.958433075Z"
