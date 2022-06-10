@@ -330,6 +330,18 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/freetakserver-1.0.1/freetakserver-1.0.1.tgz
     version: 1.0.1
+  grist:
+  - apiVersion: v2
+    appVersion: 0.7.9
+    created: "2022-06-10T22:21:27.360255793Z"
+    description: Combine the flexibility of a spreadsheet with the robustness of a
+      database to organize your data, your way.
+    digest: 4fed992ea9ebf0249c9c259ba35d30cbd79f0f9759f51566339bab92f8b04831
+    name: grist
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/grist-0.1.0/grist-0.1.0.tgz
+    version: 0.1.0
   hcloud-fip-controller:
   - apiVersion: v2
     appVersion: 0.4.1
@@ -968,4 +980,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-06-08T17:06:39.958433075Z"
+generated: "2022-06-10T22:21:27.360566198Z"
