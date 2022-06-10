@@ -1,0 +1,42 @@
+{{ template "chart.header" . }}
+
+Work in progress, only basic features supported ATM
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+{{ template "chart.description" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+### Usage
+
+**Please read: this chart will not work with default settings!**
+
+Due to how grist works, it needs proper URL setting. URL set in grist.url should be same as public-facing URL of Grist (ingress, etc). At minimum, you will need to set
+```
+grist:
+  url: https://grist.example.org
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: grist.example.org
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+```
+
+Otherwise, grist will call it's API via non-existent URLs.
+
+### Configuration
+
+Use extraEnv variable to configure grist, full list of available variables [can be found here](https://github.com/gristlabs/grist-core#environment-variables)
+
+{{ template "chart.valuesSection" . }}
+
+## Upgrading
+
+A major chart version change indicates that there is an incompatible breaking change needing manual actions.
