@@ -740,6 +740,16 @@ entries:
     version: 0.0.2
   pyrra:
   - apiVersion: v2
+    appVersion: v0.4.2
+    created: "2022-06-17T13:05:11.688088316Z"
+    description: SLO manager and alert generator
+    digest: 67bc37dbff82f3d9d8b2a5662b1a440de9102ed1bf9dee69d3314ad46f8aad7c
+    name: pyrra
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/pyrra-0.2.1/pyrra-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
     appVersion: v0.4.0
     created: "2022-05-25T18:55:44.998165076Z"
     description: Making SLOs with Prometheus manageable, accessible, and easy to use
@@ -980,4 +990,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-06-10T22:21:27.360566198Z"
+generated: "2022-06-17T13:05:11.688285919Z"
