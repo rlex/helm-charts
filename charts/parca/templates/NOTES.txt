@@ -1,3 +1,6 @@
+THIS CHART HAS BEEN DEPRECATED - IT'S NOW LOCATED IN OFFICIAL PARCA HELM CHART REPO: https://github.com/parca-dev/helm-charts
+It's also drop-in replacement, so you just need to update chart repo in your deployment.
+
 1. Get the application URL by running these commands:
 {{- if .Values.ingress.enabled }}
 {{- range $host := .Values.ingress.hosts }}

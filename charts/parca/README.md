@@ -1,3 +1,6 @@
+# Parca chart in this repo has been deprecated - it's now part of [official parca helm chart repository](github.com/parca-dev/helm-charts) 
+## Chart in parca repository is a direct continuation of chart in my repo, and drop-in replacement. Just replace rlex/parca with parca/parca.
+
 # parca
 
 Open Source Infrastructure-wide continuous profiling
