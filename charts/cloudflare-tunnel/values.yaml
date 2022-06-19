@@ -51,6 +51,14 @@ serviceAccount:
 # -- pod annotations
 podAnnotations: {}
 
+# -- additional container environment variables
+extraEnv: []
+## Example: Cloudflare Edge ip address version to connect with. {4, 6, auto}
+## extraEnv:
+##   - name: TUNNEL_EDGE_IP_VERSION
+##     value: 6
+##
+
 # -- pod security context
 podSecurityContext: {}
   # fsGroup: 2000

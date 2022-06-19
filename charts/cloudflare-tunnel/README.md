@@ -61,6 +61,7 @@ For more settings of ingresses please consult [official cloudflare docs](https:/
 | cloudflared.serviceMonitor.enabled | bool | `false` |  |
 | cloudflared.tunnel | string | `nil` | tunnel UUID. Tunnel name will not work. Get it with 'cloudflared tunnel list' |
 | cloudflared.tunnelSecret | string | `"tunnel-credentials"` | name of secret with stored tunnel credentials |
+| extraEnv | list | `[]` | additional container environment variables |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"cloudflare/cloudflared"` | overrides default image |
