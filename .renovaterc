@@ -6,7 +6,7 @@
 		"fileMatch": ["^helm\\\/releases\\\/.*\\.yaml$"]
 	},
 	"github-actions": {
-		"fileMatch": ["^\.gitlab\\\/workflows\\\/.*\\\.ya?ml$"]
+		"fileMatch": ["^\\.github\\\/workflows\\\/.*\\.ya?ml$"]
 	},
   "packageRules": [
     {
