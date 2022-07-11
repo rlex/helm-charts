@@ -1,6 +1,6 @@
 # cloudflare-tunnel
 
-![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.6.2](https://img.shields.io/badge/AppVersion-2022.6.2-informational?style=flat-square)
+![Version: 0.1.8](https://img.shields.io/badge/Version-0.1.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.7.1](https://img.shields.io/badge/AppVersion-2022.7.1-informational?style=flat-square)
 
 Manage and use cloudflare tunnels (also known as argo tunnels) on k8s cluster
 
@@ -52,6 +52,7 @@ This config will configure cloudflared to use tunnel with id 70ad5745-dbdd-427a-
 Additionally, it will configure serviceMonitor for prometheus-operator. In case you do not use operator, and want to use annotations, metrics are on port 2000 of pod.
 
 For more settings of ingresses please consult [official cloudflare docs](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/configuration-file/ingress)
+
 ## Values
 
 | Key | Type | Default | Description |
@@ -65,7 +66,7 @@ For more settings of ingresses please consult [official cloudflare docs](https:/
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"cloudflare/cloudflared"` | overrides default image |
-| image.tag | string | `"2022.6.2"` | Overrides the image tag whose default is the chart appVersion. |
+| image.tag | string | `"2022.7.1"` | Overrides the image tag whose default is the chart appVersion. |
 | imagePullSecrets | list | `[]` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` | node selector rules |
