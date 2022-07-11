@@ -1,0 +1,18 @@
+{
+	"extends": [
+		"config:base"
+	],
+	"helmfile": {
+		"fileMatch": ["^helm\\\/releases\\\/.*\\.yaml$"]
+	},
+	"gitlab-actions": {
+		"fileMatch": ["^\.gitlab\\\/workflows\\\/.*\\\.ya?ml$"]
+	},
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+	],
+	"ignoreTests": true
+}
