@@ -1,0 +1,83 @@
+# Check if the TLS secret already exists and initialize variables for later use at the top level
+{{- $secret := lookup "v1" "Secret" .Release.Namespace (include "runtimeclass-controller.certificateName" .) }}
+{{ $ca := "" }}
+{{ $key := "" }}
+{{ $crt := "" }}
+---
+{{- if .Values.tls.certManagerIssuerRef }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "runtimeclass-controller.fullname" . }}
+  labels:
+  {{- include "runtimeclass-controller.labels" . | nindent 4 }}
+spec:
+  secretName: {{ include "runtimeclass-controller.certificateName" . }}
+  dnsNames:
+    - {{ include "runtimeclass-controller.fullname" . }}.{{ .Release.Namespace }}.svc
+  issuerRef:
+  {{- toYaml .Values.tls.certManagerIssuerRef | nindent 4 }}
+  privateKey:
+    rotationPolicy: Always
+---
+{{- else if .Values.tls.autogenerate }}
+  {{- if and $secret (not .Values.tls.renew) }}
+    {{- $ca = get $secret.data "ca.crt" }}
+    {{- $key = get $secret.data "tls.key" }}
+    {{- $crt = get $secret.data "tls.crt" }}
+  {{- else }}
+    {{- $serviceName := (printf "%s.%s.svc" (include "runtimeclass-controller.fullname" .) .Release.Namespace)}}
+    {{- $cert := genSelfSignedCert $serviceName nil (list $serviceName) 3650 }}
+    {{- $ca = b64enc $cert.Cert }}
+    {{- $key = b64enc $cert.Key }}
+    {{- $crt = b64enc $cert.Cert }}
+  {{- end }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "runtimeclass-controller.certificateName" . }}
+  labels:
+    {{- include "runtimeclass-controller.labels" . | nindent 4 }}
+type: kubernetes.io/tls
+data:
+  ca.crt: {{ $ca }}
+  tls.key: {{ $key }}
+  tls.crt: {{ $crt }}
+---
+{{- end }}
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: {{ include "runtimeclass-controller.fullname" . }}
+  labels:
+    {{- include "runtimeclass-controller.labels" . | nindent 4 }}
+  {{- if .Values.tls.certManagerIssuerRef }}
+  annotations:
+    cert-manager.io/inject-ca-from: {{ .Release.Namespace }}/{{ include "runtimeclass-controller.fullname" . }}
+  {{- end }}
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: {{ include "runtimeclass-controller.serviceAccountName" . }}
+  labels:
+    {{- include "runtimeclass-controller.labels" . | nindent 4 }}
+webhooks:
+  - name: {{ include "runtimeclass-controller.fullname" . }}.{{ .Release.Namespace }}.svc
+    sideEffects: None
+    admissionReviewVersions:
+      - "v1"
+    clientConfig:
+      service:
+        name: runtimeclass-controller
+        namespace: runtimeclass-controller
+        path: "/mutate"
+      {{- if not .Values.tls.certManagerIssuerRef }}
+      caBundle: {{ $ca }}
+      {{- end }}
+    rules:
+      - operations: ["CREATE"]
+        apiGroups: ["*"]
+        apiVersions: ["*"]
+        resources: ["pods", "deployments", "replicasets", "statefulsets", "daemonsets", "jobs", "cronjobs"]
+        scope: "Namespaced"
+    failurePolicy: Ignore
