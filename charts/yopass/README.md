@@ -1,6 +1,6 @@
 # yopass
 
-![Version: 0.4.3](https://img.shields.io/badge/Version-0.4.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 11.4.3](https://img.shields.io/badge/AppVersion-11.4.3-informational?style=flat-square)
+![Version: 0.4.5](https://img.shields.io/badge/Version-0.4.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 11.4.3](https://img.shields.io/badge/AppVersion-11.4.3-informational?style=flat-square)
 
 Secure sharing for secrets, passwords and files
 
@@ -12,8 +12,8 @@ Secure sharing for secrets, passwords and files
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | memcached | 6.1.4 |
-| https://charts.bitnami.com/bitnami | redis | 16.12.2 |
+| https://charts.bitnami.com/bitnami | memcached | 6.1.5 |
+| https://charts.bitnami.com/bitnami | redis | 17.0.1 |
 
 ## Usage
 Yopass supports redis and memcached databases. Which one it uses is controlled by yopass.database value
@@ -33,7 +33,7 @@ You can also customize redis and memcached subcharts by using redis and memcache
 | fullnameOverride | string | `""` | Overrides helm-generated chart fullname |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"jhaals/yopass"` | Image repository |
-| image.tag | string | `"11.4.3"` | Overrides the image tag whose default is the chart appVersion. |
+| image.tag | string | `"11.14.4"` | Overrides the image tag whose default is the chart appVersion. |
 | imagePullSecrets | list | `[]` | specifies pull secrets for image repository |
 | ingress.annotations | object | `{}` | additional annotations for ingress |
 | ingress.className | string | `""` | specifies ingress class name (ie nginx) |
