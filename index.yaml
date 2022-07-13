@@ -904,6 +904,20 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/pyrra-0.1.0/pyrra-0.1.0.tgz
     version: 0.1.0
+  runtimeclass-controller:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2022-07-13T22:57:06.371695358Z"
+    description: A Helm chart for Kubernetes
+    digest: 450dca21ab80098578bbd1c26aba05b94586c94b210a708a97e6c9cabb4b229f
+    name: runtimeclass-controller
+    sources:
+    - https://github.com/jlclx/runtimeclass-controller
+    - https://github.com/rlex/helm-charts
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/runtimeclass-controller-0.1.0/runtimeclass-controller-0.1.0.tgz
+    version: 0.1.0
   yopass:
   - apiVersion: v2
     appVersion: 11.4.3
@@ -1113,4 +1127,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-07-13T20:59:29.160956715Z"
+generated: "2022-07-13T22:57:06.378061324Z"
