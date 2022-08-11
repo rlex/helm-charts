@@ -387,6 +387,18 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/hcloud-fip-controller-0.2.3/hcloud-fip-controller-0.2.3.tgz
     version: 0.2.3
+  jsonvisio:
+  - apiVersion: v2
+    appVersion: 1.9.5
+    created: "2022-08-11T12:23:41.637706026Z"
+    description: Seamlessly visualize your JSON data instantly into graphs; paste,
+      import or fetch!
+    digest: cccd52371756f199af13f921dd6b031342d22c79538ec98f6978a202b2cac69e
+    name: jsonvisio
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/jsonvisio-0.1.0/jsonvisio-0.1.0.tgz
+    version: 0.1.0
   kube-resource-report:
   - apiVersion: v1
     appVersion: 22.7.0
@@ -1127,4 +1139,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-07-13T22:57:06.378061324Z"
+generated: "2022-08-11T12:23:41.637895126Z"
