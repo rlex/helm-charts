@@ -4,8 +4,6 @@
 
 Report Kubernetes cluster and pod resource requests vs usage and generate static HTML
 
-Report Kubernetes cluster and pod resource requests vs usage and generate static HTML
-
 Forked from [official but unsupported chart](https://codeberg.org/hjacobs/kube-resource-report/src/branch/main/unsupported/chart/kube-resource-report) with some fixes
 
 ## Values
