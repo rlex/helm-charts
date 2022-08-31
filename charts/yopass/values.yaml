@@ -40,6 +40,8 @@ service:
   type: ClusterIP
   # -- service port
   port: 1337
+  # -- additional annotations for service
+  annotations: {}
 
 ingress:
   # -- enables ingress
