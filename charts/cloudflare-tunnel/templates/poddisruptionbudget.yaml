@@ -13,5 +13,6 @@ spec:
   maxUnavailable: {{ .Values.podDisruptionBudget.maxUnavailable }}
   {{- end }}
   selector:
-    {{- include "cloudflare-tunnel.selectorLabels" . | nindent 4 }}
+    matchLabels:
+      {{- include "cloudflare-tunnel.selectorLabels" . | nindent 6 }}
 {{- end }}
