@@ -1,6 +1,6 @@
 # cloudflare-tunnel
 
-![Version: 0.1.10](https://img.shields.io/badge/Version-0.1.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.8.0](https://img.shields.io/badge/AppVersion-2022.8.0-informational?style=flat-square)
+![Version: 0.1.11](https://img.shields.io/badge/Version-0.1.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2022.8.0](https://img.shields.io/badge/AppVersion-2022.8.0-informational?style=flat-square)
 
 Manage and use cloudflare tunnels (also known as argo tunnels) on k8s cluster
 
@@ -71,6 +71,10 @@ For more settings of ingresses please consult [official cloudflare docs](https:/
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` | node selector rules |
 | podAnnotations | object | `{}` | pod annotations |
+| podDisruptionBudget | object | `{"create":false,"maxUnavailable":"","minAvailable":1}` | Pod Disruption Budget configuration |
+| podDisruptionBudget.create | bool | `false` | Specifies whether a PodDisruptionBudget should be created |
+| podDisruptionBudget.maxUnavailable | string | `""` | Max number of pods that can be unavailable after the eviction |
+| podDisruptionBudget.minAvailable | int | `1` | Min number of pods that must still be available after the eviction |
 | podSecurityContext | object | `{}` | pod security context |
 | replicaCount | int | `1` | Amount of replicas. Be aware that >1 replicas requires paid cloudflare loadbalancer subscription |
 | resources | object | `{}` | pod limits/requests |

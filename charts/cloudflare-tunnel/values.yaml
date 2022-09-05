@@ -72,6 +72,15 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# -- Pod Disruption Budget configuration
+podDisruptionBudget:
+  # -- Specifies whether a PodDisruptionBudget should be created
+  create: false
+  # -- Min number of pods that must still be available after the eviction
+  minAvailable: 1
+  # -- Max number of pods that can be unavailable after the eviction
+  maxUnavailable: ""
+
 # -- pod limits/requests
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
