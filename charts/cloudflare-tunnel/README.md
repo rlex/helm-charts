@@ -71,6 +71,7 @@ For more settings of ingresses please consult [official cloudflare docs](https:/
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` | node selector rules |
 | podAnnotations | object | `{}` | pod annotations |
+| podDisruptionBudget.create | bool | `false` | Specifies whether a PodDisruptionBudget should be created  |
 | podSecurityContext | object | `{}` | pod security context |
 | replicaCount | int | `1` | Amount of replicas. Be aware that >1 replicas requires paid cloudflare loadbalancer subscription |
 | resources | object | `{}` | pod limits/requests |
