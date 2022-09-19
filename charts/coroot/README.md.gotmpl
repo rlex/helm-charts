@@ -8,10 +8,6 @@
 
 {{ template "chart.requirementsSection" . }}
 
-## Prometheus settings
-Pyrra needs prometheus to work. You will need to specify that via prometheusUrl variable - default assumes you have default [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) deployed to "monitoring" namespace.
-Additionaly, you (most likely) will need to specify prometheusExternalUrl with URL to public-facing prometheus UI (ingress or whatever you're using), otherwise pyrra links to graphs will be broken
-
 {{ template "chart.valuesSection" . }}
 
 ## Upgrading
