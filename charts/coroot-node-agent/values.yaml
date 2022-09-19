@@ -1,0 +1,66 @@
+#Default values for coroot-node-agent.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  # -- Overrides the image repository
+  repository: ghcr.io/coroot/coroot-node-agent
+  # -- Overrides pull policy
+  pullPolicy: IfNotPresent
+  # -- Overrides the image tag
+  tag: "1.0.19"
+
+# -- specifies pull secrets for image repository
+imagePullSecrets: []
+# -- overrides chart name
+nameOverride: ""
+# -- Overrides helm-generated chart fullname
+fullnameOverride: ""
+
+serviceAccount:
+  # -- Specifies whether a service account should be created
+  create: true
+  # -- Annotations to add to the service account
+  annotations: {}
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# -- Additional annotations for pods
+podAnnotations: {}
+# -- Additional pod security context
+podSecurityContext: {}
+  # fsGroup: 2000
+
+# -- Security context. Needs privileged to scrape host metrics
+securityContext:
+  privileged: true
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+# -- resource limits and requests
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+podMonitor:
+  # -- enables pod monitor for prometheus-operator to scrape metrics from coroot-node-agent daemonset
+  enabled: false
+
+# -- node selector for scheduling pods
+nodeSelector: {}
+# -- node tolerations for scheduling pods
+tolerations: []
+# -- affinity for scheduling pods
+affinity: {}
