@@ -1,6 +1,6 @@
 # coroot-node-agent
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.19](https://img.shields.io/badge/AppVersion-1.0.19-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.21](https://img.shields.io/badge/AppVersion-1.0.21-informational?style=flat-square)
 
 A Prometheus exporter based on eBPF that gathers comprehensive container metrics
 
@@ -12,7 +12,7 @@ A Prometheus exporter based on eBPF that gathers comprehensive container metrics
 | fullnameOverride | string | `""` | Overrides helm-generated chart fullname |
 | image.pullPolicy | string | `"IfNotPresent"` | Overrides pull policy |
 | image.repository | string | `"ghcr.io/coroot/coroot-node-agent"` | Overrides the image repository |
-| image.tag | string | `"1.0.19"` | Overrides the image tag |
+| image.tag | string | `"1.0.21"` | Overrides the image tag |
 | imagePullSecrets | list | `[]` | specifies pull secrets for image repository |
 | nameOverride | string | `""` | overrides chart name |
 | nodeSelector | object | `{}` | node selector for scheduling pods |
