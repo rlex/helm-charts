@@ -39,6 +39,9 @@ service:
   type: ClusterIP
   # -- service port for server
   port: 9099
+  # -- service nodePort to expose
+  # -- node port for HTTP, choose port between <30000-32767>
+  nodePort: ""
 
 ingress:
   # -- enables ingress for server UI
@@ -46,7 +49,8 @@ ingress:
   # -- specifies ingress class name (ie nginx)
   className: ""
   # -- additional annotations for ingress
-  annotations: {}
+  annotations:
+    {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:

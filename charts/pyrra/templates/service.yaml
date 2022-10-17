@@ -13,5 +13,8 @@ spec:
       port: 9444
     - name: http
       port: {{ .Values.service.port }}
+      {{- if .Values.service.nodePort }}
+      nodePort: {{ .Values.service.nodePort }}
+      {{- end }}
   selector:
     {{- include "pyrra.selectorLabels" . | nindent 4 }}
