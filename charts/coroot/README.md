@@ -12,7 +12,7 @@ A monitoring and troubleshooting tool for microservice architectures.
 | fullnameOverride | string | `""` | Overrides helm-generated chart fullname |
 | image.pullPolicy | string | `"IfNotPresent"` | Overrides pullpolicy |
 | image.repository | string | `"ghcr.io/coroot/coroot"` | Overrides the image repository |
-| image.tag | string | `"0.5.2"` | Overrides the image tag |
+| image.tag | string | `"0.5.3"` | Overrides the image tag |
 | imagePullSecrets | list | `[]` | specifies pull secrets for image repository |
 | ingress.annotations | object | `{}` | additional annotations for ingress |
 | ingress.className | string | `""` | specifies ingress class name (ie nginx) |
