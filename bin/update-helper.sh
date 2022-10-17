@@ -30,7 +30,7 @@ sedlink() {
 #function to work with semver, source:
 #https://github.com/fmahnke/shell-semver/blob/master/increment_version.sh
 semver_increment() {
-  case ${2} in
+  case ${patchlevel} in
     major ) major=true;;
     minor ) minor=true;;
     patch ) patch=true;;
@@ -38,19 +38,11 @@ semver_increment() {
 
   shift $(($OPTIND - 1))
 
-  version=$1
+  version=$(grep "version:" charts/${chart}/Chart.yaml | awk {'print $2'})
 
   # Build array from version string.
 
   a=( ${version//./ } )
-
-  # If version string is missing or has the wrong number of members, show usage message.
-
-  if [ ${#a[@]} -ne 3 ]
-  then
-    echo "usage: $(basename $0) [-Mmp] major.minor.patch"
-    exit 1
-  fi
 
   # Increment version numbers as requested.
 
@@ -75,8 +67,6 @@ semver_increment() {
   echo "${a[0]}.${a[1]}.${a[2]}"
 }
 
-#parse current version from Chart.yaml
-current_version=$(grep version charts/${chart}/Chart.yaml | awk {'print $2'})
 #set to version we need
 target_version=$(semver_increment ${current_version} ${patchlevel})
 #patch it around
