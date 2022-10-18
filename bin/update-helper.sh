@@ -1,14 +1,13 @@
 #!/bin/bash
-set -x
-#ugly-ass script to bump version and regenerate docs
-#maybe increment version automatically?
-#maybe add it to PR pipeline?
+# ugly-ass script to bump versions in Chart.yaml and regenerate docs
+# mostly for working with renovate-generated updates, since it can't update those values
+# maybe add it to PR pipeline?
 
-#assign vars from args
+# assign vars from args
 chart=${1}
 patchlevel=${2}
 
-#exit on no args
+# exit on no args
 if [[ ${1} == "" && ${2} == "" ]];
   then
   echo "Usage: update-helper.sh chart_name patchlevel"
@@ -16,7 +15,7 @@ if [[ ${1} == "" && ${2} == "" ]];
   exit 0
 fi
 
-#so it works on both linux and OSX
+# ugly symlink so it works on both linux and OSX
 sedlink() {
   if [[ "${OSTYPE}" == "linux-gnu"* ]]; then
     sed "$@"
@@ -27,8 +26,8 @@ sedlink() {
   fi
 }
 
-#function to work with semver, source:
-#https://github.com/fmahnke/shell-semver/blob/master/increment_version.sh
+# function to work with semver, source:
+# https://github.com/fmahnke/shell-semver/blob/master/increment_version.sh
 semver_increment() {
   case ${patchlevel} in
     major ) major=true;;
@@ -71,9 +70,13 @@ semver_increment() {
 target_version=$(semver_increment ${current_version} ${patchlevel})
 #patch it around
 sedlink -i "s/^version:.*$/version: ${target_version}/g" charts/${chart}/Chart.yaml
+#extract image version from values (multiple different images not supported)
+appversion=$(grep "tag:" charts/coroot/values.yaml | awk {'print $2'} | tr -d '"')
+#patch it around
+sedlink -i "s/^appVersion:.*$/appVersion: ${appversion}/g" charts/${chart}/Chart.yaml
 #regenerate docs
-helm-docs
+helm-docs --chart-to-generate charts/${chart}
 #add to git staging
-git add charts/${chart}/
+git add charts/${chart}
 #commit
 git commit -m "[${chart}] bump to ${target_version}"
