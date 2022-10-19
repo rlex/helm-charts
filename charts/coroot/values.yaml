@@ -10,7 +10,7 @@ image:
   # -- Overrides pullpolicy
   pullPolicy: IfNotPresent
   # -- Overrides the image tag
-  tag: "0.5.4"
+  tag: "0.5.5"
 
 # -- specifies pull secrets for image repository
 imagePullSecrets: []
