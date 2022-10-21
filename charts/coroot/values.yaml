@@ -82,6 +82,17 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+strategy:
+  # -- Set type of update strategy, Recreate or RollingUpdate
+  type: Recreate
+  rollingUpdate:
+    # -- Set deployment RollingUpdate max unavailable
+    unavailable:
+    # -- Set deployment RollingUpdate max surge
+    surge:
+    # -- Set statefulset RollingUpdate partition
+    partition:
+
 persistence:
   # -- enables persistence for coroot
   enabled: false
