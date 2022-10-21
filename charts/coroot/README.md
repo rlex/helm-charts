@@ -1,6 +1,6 @@
 # coroot
 
-![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.5.5](https://img.shields.io/badge/AppVersion-0.5.5-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.5.5](https://img.shields.io/badge/AppVersion-0.5.5-informational?style=flat-square)
 
 A monitoring and troubleshooting tool for microservice architectures.
 
@@ -35,6 +35,10 @@ A monitoring and troubleshooting tool for microservice architectures.
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
+| strategy.rollingUpdate.partition | string | `nil` | Set statefulset RollingUpdate partition |
+| strategy.rollingUpdate.surge | string | `nil` | Set deployment RollingUpdate max surge |
+| strategy.rollingUpdate.unavailable | string | `nil` | Set deployment RollingUpdate max unavailable |
+| strategy.type | string | `"Recreate"` | Set type of update strategy, Recreate or RollingUpdate |
 | tolerations | list | `[]` | node tolerations for scheduling pods |
 
 ## Upgrading
