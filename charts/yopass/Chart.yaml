@@ -32,6 +32,6 @@ dependencies:
     repository: "https://charts.bitnami.com/bitnami"
     condition: memcached.enabled
   - name: redis
-    version: "17.1.2"
+    version: "17.3.7"
     repository: "https://charts.bitnami.com/bitnami"
     condition: redis.enabled
