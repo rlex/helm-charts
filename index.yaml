@@ -561,6 +561,17 @@ entries:
   kube-resource-report:
   - apiVersion: v1
     appVersion: 22.8.0
+    created: "2022-10-23T14:26:24.257072944Z"
+    description: Report Kubernetes cluster and pod resource requests vs usage and
+      generate static HTML
+    digest: d4e4d8f55a06d4096ab20ca61da2a1f1fa5bdd4affe3c1a931f1d24e3a0f8425
+    home: https://codeberg.org/hjacobs/kube-resource-report
+    name: kube-resource-report
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/kube-resource-report-0.8.0/kube-resource-report-0.8.0.tgz
+    version: 0.8.0
+  - apiVersion: v1
+    appVersion: 22.8.0
     created: "2022-09-05T18:46:29.917125661Z"
     description: Report Kubernetes cluster and pod resource requests vs usage and
       generate static HTML
@@ -1414,4 +1425,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-10-21T11:07:37.022892467Z"
+generated: "2022-10-23T14:26:24.257542249Z"
