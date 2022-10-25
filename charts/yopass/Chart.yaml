@@ -28,7 +28,7 @@ version: 0.5.0
 appVersion: "11.4.5"
 dependencies:
   - name: memcached
-    version: "6.2.3"
+    version: "6.3.0"
     repository: "https://charts.bitnami.com/bitnami"
     condition: memcached.enabled
   - name: redis
