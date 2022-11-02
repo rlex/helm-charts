@@ -12,7 +12,7 @@ A Prometheus exporter based on eBPF that gathers comprehensive container metrics
 | fullnameOverride | string | `""` | Overrides helm-generated chart fullname |
 | image.pullPolicy | string | `"IfNotPresent"` | Overrides pull policy |
 | image.repository | string | `"ghcr.io/coroot/coroot-node-agent"` | Overrides the image repository |
-| image.tag | string | `"1.1.0"` | Overrides the image tag |
+| image.tag | string | `"1.1.1"` | Overrides the image tag |
 | imagePullSecrets | list | `[]` | specifies pull secrets for image repository |
 | nameOverride | string | `""` | overrides chart name |
 | nodeSelector | object | `{}` | node selector for scheduling pods |
