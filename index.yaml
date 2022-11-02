@@ -136,6 +136,16 @@ entries:
   coroot:
   - apiVersion: v2
     appVersion: 0.6.0
+    created: "2022-11-02T19:11:12.02860574Z"
+    description: A monitoring and troubleshooting tool for microservice architectures.
+    digest: 824fcc99df1a86a4ed998ab14f1f49d9d05d3a99ba3770362a903a59e2a84a7e
+    name: coroot
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/coroot-0.5.0/coroot-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
+    appVersion: 0.6.0
     created: "2022-10-25T14:48:14.66628358Z"
     description: A monitoring and troubleshooting tool for microservice architectures.
     digest: d5095659763a6f8c50478380df56272b2ba589c2b2d93a04a8cd0b6db6287b9d
@@ -1467,4 +1477,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-11-02T19:08:59.363729722Z"
+generated: "2022-11-02T19:11:12.276739214Z"
