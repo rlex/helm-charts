@@ -13,7 +13,7 @@ Additionaly, you (most likely) will need to specify prometheusExternalUrl with U
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | fullnameOverride | string | `""` | Overrides helm-generated chart fullname |
-| genericRuler.enabled | boolean | `false` | Generats Pyrra generic recording rules |
+| genericRules.enabled | boolean | `false` | Generats Pyrra generic recording rules |
 | image.pullPolicy | string | `"IfNotPresent"` | Overrides pullpolicy |
 | image.repository | string | `"ghcr.io/pyrra-dev/pyrra"` | Overrides the image repository |
 | image.tag | string | `"v0.5.0"` | Overrides the image tag |
