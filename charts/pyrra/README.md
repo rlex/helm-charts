@@ -1,6 +1,6 @@
 # pyrra
 
-![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.6.0](https://img.shields.io/badge/AppVersion-0.6.0-informational?style=flat-square)
+![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.6.0](https://img.shields.io/badge/AppVersion-0.6.0-informational?style=flat-square)
 
 SLO manager and alert generator
 
@@ -13,6 +13,7 @@ Additionaly, you (most likely) will need to specify prometheusExternalUrl with U
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | fullnameOverride | string | `""` | Overrides helm-generated chart fullname |
+| genericRuler.enabled | boolean | `false` | Generats Pyrra generic recording rules |
 | image.pullPolicy | string | `"IfNotPresent"` | Overrides pullpolicy |
 | image.repository | string | `"ghcr.io/pyrra-dev/pyrra"` | Overrides the image repository |
 | image.tag | string | `"v0.5.0"` | Overrides the image tag |
