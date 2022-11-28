@@ -45,6 +45,9 @@ spec:
             {{- if eq .Values.yopass.database "redis" }}
             - "--redis={{ .Values.yopass.redisUrl }}"
             {{- end }}
+            {{- if (default .Values.yopass.forceOnetimeSecrets false) }}
+            - "--force-onetime-secrets={{ .Values.yopass.forceOnetimeSecrets }}"
+            {{- end }}
           ports:
             - name: http
               containerPort: 1337

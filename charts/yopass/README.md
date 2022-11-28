@@ -81,6 +81,7 @@ You can also customize redis and memcached subcharts by using redis and memcache
 | yopass.metrics.enabled | bool | `false` | enables yopass metrics |
 | yopass.metrics.serviceMonitor.enabled | bool | `false` | enables yopass serviceMonitor. Requires metrics enabled |
 | yopass.redisUrl | string | `"redis://yopass-redis-master:6379/0"` | redis url. Default assumes default redis settings |
+| yopass.forceOnetimeSecrets | bool | `false` | reject non onetime secrets from being created |
 
 ## Upgrading
 
