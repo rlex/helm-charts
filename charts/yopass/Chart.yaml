@@ -25,7 +25,7 @@ version: 0.5.0
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "11.4.5"
+appVersion: "11.4.6"
 dependencies:
   - name: memcached
     version: "6.2.3"
