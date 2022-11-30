@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: hjacobs/kube-resource-report
-  tag: "22.10.1"
+  tag: "22.11.0"
   pullPolicy: IfNotPresent
 
 # Image pull secrets for Docker images
