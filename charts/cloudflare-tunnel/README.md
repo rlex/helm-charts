@@ -1,6 +1,6 @@
 # cloudflare-tunnel
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.6.0](https://img.shields.io/badge/AppVersion-0.6.0-informational?style=flat-square)
+![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.6.0](https://img.shields.io/badge/AppVersion-0.6.0-informational?style=flat-square)
 
 Manage and use cloudflare tunnels (also known as argo tunnels) on k8s cluster
 
@@ -58,6 +58,7 @@ For more settings of ingresses please consult [official cloudflare docs](https:/
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` | affinity rules |
+| cloudflared.arguments | list | `["tunnel","--config","/etc/cloudflared/config/config.yaml","run"]` | cloudflared command line arguments |
 | cloudflared.ingress | list | `[{"hostname":"hello.example.com","service":"hello_world"},{"service":"http_status:404"}]` | Yaml wth ingress rules |
 | cloudflared.serviceMonitor.enabled | bool | `false` |  |
 | cloudflared.tunnel | string | `nil` | tunnel UUID. Tunnel name will not work. Get it with 'cloudflared tunnel list' |
