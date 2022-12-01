@@ -743,6 +743,16 @@ entries:
     version: 0.7.0
   kube-web-view:
   - apiVersion: v2
+    appVersion: 0.7.1
+    created: "2022-12-01T16:22:09.058782724Z"
+    description: Kubernetes Web View to list and view all Kubernetes resources
+    digest: 4d256dbf8e46856538736c63ea5df22bd56092a7123cf06bcaf16333268d8889
+    name: kube-web-view
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/kube-web-view-0.3.0/kube-web-view-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     appVersion: 22.9.0
     created: "2022-11-03T23:22:41.129633655Z"
     description: Kubernetes Web View to list and view all Kubernetes resources
@@ -1539,4 +1549,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-12-01T16:19:48.197621608Z"
+generated: "2022-12-01T16:22:09.059393545Z"
