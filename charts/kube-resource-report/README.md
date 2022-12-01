@@ -1,6 +1,6 @@
 # kube-resource-report
 
-![Version: 0.9.0](https://img.shields.io/badge/Version-0.9.0-informational?style=flat-square) ![AppVersion: 0.5.6](https://img.shields.io/badge/AppVersion-0.5.6-informational?style=flat-square)
+![Version: 0.10.0](https://img.shields.io/badge/Version-0.10.0-informational?style=flat-square) ![AppVersion: 0.7.1](https://img.shields.io/badge/AppVersion-0.7.1-informational?style=flat-square)
 
 Report Kubernetes cluster and pod resource requests vs usage and generate static HTML
 
@@ -22,7 +22,7 @@ Forked from [official but unsupported chart](https://codeberg.org/hjacobs/kube-r
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"hjacobs/kube-resource-report"` |  |
-| image.tag | string | `"22.10.1"` |  |
+| image.tag | string | `"22.11.0"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
