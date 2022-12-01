@@ -8,7 +8,7 @@ image:
   repository: hjacobs/kube-web-view
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "22.9.0"
+  tag: "22.11.0"
 
 imagePullSecrets: []
 nameOverride: ""

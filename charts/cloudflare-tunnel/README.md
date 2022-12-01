@@ -58,6 +58,7 @@ For more settings of ingresses please consult [official cloudflare docs](https:/
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` | affinity rules |
+| cloudflared.arguments | list | `["tunnel","--config","/etc/cloudflared/config/config.yaml","run"]` | cloudflared command line arguments |
 | cloudflared.ingress | list | `[{"hostname":"hello.example.com","service":"hello_world"},{"service":"http_status:404"}]` | Yaml wth ingress rules |
 | cloudflared.serviceMonitor.enabled | bool | `false` |  |
 | cloudflared.tunnel | string | `nil` | tunnel UUID. Tunnel name will not work. Get it with 'cloudflared tunnel list' |

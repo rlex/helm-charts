@@ -1,6 +1,6 @@
 # yopass
 
-![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 11.4.5](https://img.shields.io/badge/AppVersion-11.4.5-informational?style=flat-square)
+![Version: 0.5.1](https://img.shields.io/badge/Version-0.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 11.4.6](https://img.shields.io/badge/AppVersion-11.4.6-informational?style=flat-square)
 
 Secure sharing for secrets, passwords and files
 
@@ -33,7 +33,7 @@ You can also customize redis and memcached subcharts by using redis and memcache
 | fullnameOverride | string | `""` | Overrides helm-generated chart fullname |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"jhaals/yopass"` | Image repository |
-| image.tag | string | `"11.4.5"` | Overrides the image tag whose default is the chart appVersion. |
+| image.tag | string | `"11.4.6"` | Overrides the image tag whose default is the chart appVersion. |
 | imagePullSecrets | list | `[]` | specifies pull secrets for image repository |
 | ingress.annotations | object | `{}` | additional annotations for ingress |
 | ingress.className | string | `""` | specifies ingress class name (ie nginx) |
@@ -76,6 +76,7 @@ You can also customize redis and memcached subcharts by using redis and memcache
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` | tolerations for scheduling pods |
 | yopass.database | string | `"memcached"` | database backend, memcached or redis |
+| yopass.forceOnetimeSecrets | bool | `false` | reject non onetime secrets from being created |
 | yopass.maxLength | int | `10000` | max length of secret |
 | yopass.memcachedUrl | string | `"yopass-memcached:11211"` | memcached url. Default assumes default memcached settings |
 | yopass.metrics.enabled | bool | `false` | enables yopass metrics |

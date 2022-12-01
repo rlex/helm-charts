@@ -18,7 +18,7 @@ image:
   # -- Image pull policy
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart appVersion.
-  tag: "11.4.5"
+  tag: "11.4.6"
 
 serviceAccount:
   # -- Specifies whether a service account should be created
@@ -80,6 +80,8 @@ yopass:
   redisUrl: redis://yopass-redis-master:6379/0
   # -- max length of secret
   maxLength: 10000
+  # -- reject non onetime secrets from being created
+  forceOnetimeSecrets: false
   metrics:
     # -- enables yopass metrics
     enabled: false
