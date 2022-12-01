@@ -39,6 +39,14 @@ cloudflared:
     - service: http_status:404
   serviceMonitor:
     enabled: false
+  # -- cloudflared command line arguments
+  arguments:
+    # https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/local/local-management/arguments/
+    - tunnel
+    - --config
+    - /etc/cloudflared/config/config.yaml
+    - run
+
 
 serviceAccount:
   # -- Specifies whether a service account should be created
@@ -58,14 +66,6 @@ extraEnv: []
 ##   - name: TUNNEL_EDGE_IP_VERSION
 ##     value: 6
 ##
-
-# -- cloudflared command line arguments
-arguments:
-  # https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/local/local-management/arguments/
-  - tunnel
-  - --config
-  - /etc/cloudflared/config/config.yaml
-  - run
 
 # -- pod security context
 podSecurityContext: {}
