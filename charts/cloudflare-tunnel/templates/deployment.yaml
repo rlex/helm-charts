@@ -41,7 +41,7 @@ spec:
               containerPort: 2000
               protocol: TCP
           args:
-            {{  range .Values.arguments }}
+            {{  range .Values.cloudflared.arguments }}
               - {{ . }}
             {{ end }}
           livenessProbe:
