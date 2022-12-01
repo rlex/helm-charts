@@ -3,6 +3,17 @@ entries:
   cloudflare-tunnel:
   - apiVersion: v2
     appVersion: 0.6.0
+    created: "2022-12-01T20:56:31.542918607Z"
+    description: Manage and use cloudflare tunnels (also known as argo tunnels) on
+      k8s cluster
+    digest: 75535282d4b91d0c77282e4d58107f1b3f641fea482d32c88809fd8d930df04a
+    name: cloudflare-tunnel
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/cloudflare-tunnel-0.2.1/cloudflare-tunnel-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 0.6.0
     created: "2022-11-02T19:08:59.363362324Z"
     description: Manage and use cloudflare tunnels (also known as argo tunnels) on
       k8s cluster
@@ -1592,4 +1603,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2022-12-01T16:22:57.841243489Z"
+generated: "2022-12-01T20:56:31.543345435Z"
