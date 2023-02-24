@@ -80,3 +80,7 @@ tolerations: {}
 serviceMonitor:
   # -- enables servicemonitor for server monitoring
   enabled: false
+
+genericRules: 
+  # -- enables generate Pyrra generic recording rules. Pyrra generates metrics with the same name for each SLO.
+  enabled: false
