@@ -13,6 +13,9 @@ image:
   # -- Overrides the image tag
   tag: "v0.5.1"
 
+additionalLabels: {}
+  # app: pyrra
+
 serviceAccount:
   # -- Specifies whether a service account should be created
   create: true
@@ -84,6 +87,8 @@ tolerations: {}
 serviceMonitor:
   # -- enables servicemonitor for server monitoring
   enabled: false
+  # -- Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
+  labels: {}
 
 genericRules: 
   # -- enables generate Pyrra generic recording rules. Pyrra generates metrics with the same name for each SLO.
