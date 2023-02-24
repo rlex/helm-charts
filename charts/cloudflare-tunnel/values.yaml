@@ -10,7 +10,7 @@ image:
   repository: cloudflare/cloudflared
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart appVersion.
-  tag: "2022.10.3"
+  tag: "2022.11.1"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -39,6 +39,13 @@ cloudflared:
     - service: http_status:404
   serviceMonitor:
     enabled: false
+  # -- cloudflared command line arguments
+  arguments:
+    # https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/local/local-management/arguments/
+    - tunnel
+    - --config
+    - /etc/cloudflared/config/config.yaml
+    - run
 
 serviceAccount:
   # -- Specifies whether a service account should be created
