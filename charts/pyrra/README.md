@@ -1,6 +1,6 @@
 # pyrra
 
-![Version: 0.4.2](https://img.shields.io/badge/Version-0.4.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.5.1](https://img.shields.io/badge/AppVersion-v0.5.1-informational?style=flat-square)
+![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.5.4](https://img.shields.io/badge/AppVersion-v0.5.4-informational?style=flat-square)
 
 SLO manager and alert generator
 
@@ -12,11 +12,12 @@ Additionaly, you (most likely) will need to specify prometheusExternalUrl with U
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| additionalLabels | object | `{}` |  |
 | fullnameOverride | string | `""` | Overrides helm-generated chart fullname |
-| genericRules.enabled | boolean | `false` | Generats Pyrra generic recording rules |
+| genericRules.enabled | bool | `false` | enables generate Pyrra generic recording rules. Pyrra generates metrics with the same name for each SLO. |
 | image.pullPolicy | string | `"IfNotPresent"` | Overrides pullpolicy |
 | image.repository | string | `"ghcr.io/pyrra-dev/pyrra"` | Overrides the image repository |
-| image.tag | string | `"v0.5.1"` | Overrides the image tag |
+| image.tag | string | `"v0.5.4"` | Overrides the image tag |
 | imagePullSecrets | list | `[]` | specifies pull secrets for image repository |
 | ingress.annotations | object | `{}` | additional annotations for ingress |
 | ingress.className | string | `""` | specifies ingress class name (ie nginx) |
@@ -31,7 +32,7 @@ Additionaly, you (most likely) will need to specify prometheusExternalUrl with U
 | podSecurityContext | object | `{}` | additional security context for server pod |
 | prometheusExternalUrl | string | `""` | url to public-facing prometheus UI in case it differs from prometheusUrl |
 | prometheusUrl | string | `"http://prometheus-operated.monitoring.svc.cluster.local:9090"` | url to prometheus instance with metrics |
-| resources | object | `{"limits":{"cpu":"100m","memory":"30Mi"},"requests":{"cpu":"100m","memory":"20Mi"}}` | resource limits and requests for server pod |
+| resources | object | `{}` | resource limits and requests for server pod |
 | securityContext | object | `{}` | additional security context for server |
 | service.nodePort | string | `""` | node port for HTTP, choose port between <30000-32767> |
 | service.port | int | `9099` | service port for server |
@@ -40,6 +41,7 @@ Additionaly, you (most likely) will need to specify prometheusExternalUrl with U
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | If not set and create is true, a name is generated using the fullname template |
 | serviceMonitor.enabled | bool | `false` | enables servicemonitor for server monitoring |
+| serviceMonitor.labels | object | `{}` | Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator |
 | tolerations | object | `{}` | tolerations for scheduling server pod |
 
 ## Upgrading
