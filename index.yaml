@@ -319,6 +319,17 @@ entries:
     version: 0.1.0
   coroot-node-agent:
   - apiVersion: v2
+    appVersion: 1.6.4
+    created: "2023-02-24T19:30:13.986253584Z"
+    description: A Prometheus exporter based on eBPF that gathers comprehensive container
+      metrics
+    digest: 208e1e00a1508320adfbbda0013a87c35acfd2f46ef06d43986814f300e07ad4
+    name: coroot-node-agent
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/coroot-node-agent-0.5.2/coroot-node-agent-0.5.2.tgz
+    version: 0.5.2
+  - apiVersion: v2
     appVersion: 1.4.0
     created: "2022-12-05T13:36:02.994419462Z"
     description: A Prometheus exporter based on eBPF that gathers comprehensive container
@@ -1728,4 +1739,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2023-02-24T19:24:15.569447037Z"
+generated: "2023-02-24T19:30:13.986745179Z"
