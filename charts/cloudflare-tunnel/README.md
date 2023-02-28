@@ -1,6 +1,6 @@
 # cloudflare-tunnel
 
-![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2023.2.1](https://img.shields.io/badge/AppVersion-2023.2.1-informational?style=flat-square)
+![Version: 0.6.0](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2023.2.2](https://img.shields.io/badge/AppVersion-2023.2.2-informational?style=flat-square)
 
 Manage and use cloudflare tunnels (also known as argo tunnels) on k8s cluster
 
@@ -67,7 +67,7 @@ For more settings of ingresses please consult [official cloudflare docs](https:/
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"cloudflare/cloudflared"` | overrides default image |
-| image.tag | string | `"2023.2.1"` | Overrides the image tag whose default is the chart appVersion. |
+| image.tag | string | `"2023.2.2"` | Overrides the image tag whose default is the chart appVersion. |
 | imagePullSecrets | list | `[]` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` | node selector rules |
