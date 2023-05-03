@@ -34,6 +34,7 @@ Additionaly, you (most likely) will need to specify prometheusExternalUrl with U
 | prometheusUrl | string | `"http://prometheus-operated.monitoring.svc.cluster.local:9090"` | url to prometheus instance with metrics |
 | resources | object | `{}` | resource limits and requests for server pod |
 | securityContext | object | `{}` | additional security context for server |
+| service.annotations | object | `{}` | additional annotations for the service |
 | service.nodePort | string | `""` | node port for HTTP, choose port between <30000-32767> |
 | service.port | int | `9099` | service port for server |
 | service.type | string | `"ClusterIP"` | service type for server |
