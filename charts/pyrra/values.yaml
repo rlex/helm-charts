@@ -38,6 +38,8 @@ prometheusUrl: http://prometheus-operated.monitoring.svc.cluster.local:9090
 prometheusExternalUrl: ""
 
 service:
+  # -- Annotations to add to the service
+  annotations: {}
   # -- service type for server
   type: ClusterIP
   # -- service port for server
@@ -90,6 +92,6 @@ serviceMonitor:
   # -- Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
   labels: {}
 
-genericRules: 
+genericRules:
   # -- enables generate Pyrra generic recording rules. Pyrra generates metrics with the same name for each SLO.
   enabled: false
