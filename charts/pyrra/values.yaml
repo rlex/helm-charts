@@ -11,7 +11,7 @@ image:
   # -- Overrides pullpolicy
   pullPolicy: IfNotPresent
   # -- Overrides the image tag
-  tag: "v0.5.7"
+  tag: "v0.6.2"
 
 additionalLabels: {}
   # app: pyrra
