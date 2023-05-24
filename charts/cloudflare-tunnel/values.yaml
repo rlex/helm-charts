@@ -10,7 +10,7 @@ image:
   repository: cloudflare/cloudflared
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart appVersion.
-  tag: "2023.2.2"
+  tag: "2023.5.1"
 
 imagePullSecrets: []
 nameOverride: ""
