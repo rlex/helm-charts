@@ -1,6 +1,6 @@
 # yopass
 
-![Version: 0.6.0](https://img.shields.io/badge/Version-0.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 11.5.0](https://img.shields.io/badge/AppVersion-11.5.0-informational?style=flat-square)
+![Version: 0.7.0](https://img.shields.io/badge/Version-0.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 11.5.1](https://img.shields.io/badge/AppVersion-11.5.1-informational?style=flat-square)
 
 Secure sharing for secrets, passwords and files
 
@@ -12,15 +12,15 @@ Secure sharing for secrets, passwords and files
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | memcached | 6.2.3 |
-| https://charts.bitnami.com/bitnami | redis | 17.1.2 |
+| https://charts.bitnami.com/bitnami | memcached | 6.5.2 |
+| https://charts.bitnami.com/bitnami | redis | 17.11.3 |
 
 ## Usage
-Yopass supports redis and memcached databases. Which one it uses is controlled by yopass.database value
-By default, it will be deployed with memcached database (managed by bitnami/memcached subchart)
-If you want to use redis, set redis.enabled to "true', memcached.enabled to "false" and yopass.database to 'redis".
-You can also use redis or memcached instance not managed by this chart by setting both redis.enabled and memcached.enabled to "false" and using yopass.redisUrl / yopass.memcachedUrl to point to database of your choice
-You can also customize redis and memcached subcharts by using redis and memcached values provided by bitnami/redis and bitnami/memcached charts.
+Yopass supports redis and memcached databases. Which one it uses is controlled by yopass.database value<br>
+By default, it will be deployed with memcached database (managed by bitnami/memcached subchart)<br>
+If you want to use redis, set redis.enabled to "true', memcached.enabled to "false" and yopass.database to 'redis"<br>
+You can also use redis or memcached instance not managed by this chart by setting both redis.enabled and memcached.enabled to "false" and using yopass redisUrl / yopass.memcachedUrl to point to database of your choice<br>
+You can also customize redis and memcached subcharts by using redis and memcached values provided by bitnami/redis and bitnami/memcached charts<br>
 ## Values
 
 | Key | Type | Default | Description |

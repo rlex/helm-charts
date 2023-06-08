@@ -9,11 +9,11 @@
 {{ template "chart.requirementsSection" . }}
 
 ## Usage
-Yopass supports redis and memcached databases. Which one it uses is controlled by yopass.database value
-By default, it will be deployed with memcached database (managed by bitnami/memcached subchart)
-If you want to use redis, set redis.enabled to "true', memcached.enabled to "false" and yopass.database to 'redis".
-You can also use redis or memcached instance not managed by this chart by setting both redis.enabled and memcached.enabled to "false" and using yopass.redisUrl / yopass.memcachedUrl to point to database of your choice
-You can also customize redis and memcached subcharts by using redis and memcached values provided by bitnami/redis and bitnami/memcached charts.
+Yopass supports redis and memcached databases. Which one it uses is controlled by yopass.database value<br>
+By default, it will be deployed with memcached database (managed by bitnami/memcached subchart)<br>
+If you want to use redis, set redis.enabled to "true', memcached.enabled to "false" and yopass.database to 'redis"<br>
+You can also use redis or memcached instance not managed by this chart by setting both redis.enabled and memcached.enabled to "false" and using yopass redisUrl / yopass.memcachedUrl to point to database of your choice<br>
+You can also customize redis and memcached subcharts by using redis and memcached values provided by bitnami/redis and bitnami/memcached charts<br>
 {{ template "chart.valuesSection" . }}
 
 ## Upgrading
