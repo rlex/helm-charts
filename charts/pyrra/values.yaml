@@ -16,6 +16,11 @@ image:
 additionalLabels: {}
   # app: pyrra
 
+# Extra args for Pyrra's API container
+extraApiArgs: []
+# Extra args for Pyrra's Kubernetes container
+extraKubernetesArgs: []
+
 serviceAccount:
   # -- Specifies whether a service account should be created
   create: true

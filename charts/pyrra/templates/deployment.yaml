@@ -35,6 +35,9 @@ spec:
             {{- if .Values.genericRules.enabled }}
             - --generic-rules
             {{- end }}
+            {{- with .Values.extraKubernetesArgs }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
         - name: {{ .Chart.Name }}
@@ -48,6 +51,9 @@ spec:
             - --api-url=http://localhost:9444
             {{- if .Values.prometheusExternalUrl }}
             - --prometheus-external-url={{ .Values.prometheusExternalUrl }}
+            {{- end }}
+            {{- with .Values.extraApiArgs }}
+            {{- toYaml . | nindent 12 }}
             {{- end }}
           ports:
           - name: http
