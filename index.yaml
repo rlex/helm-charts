@@ -1381,6 +1381,16 @@ entries:
     version: 0.0.2
   pyrra:
   - apiVersion: v2
+    appVersion: v0.6.4
+    created: "2023-09-18T12:46:56.657601895Z"
+    description: SLO manager and alert generator
+    digest: 2eb52b52c5bed50b7316d6fd89bbc66532a268b8218afbe93be86f286b68e8a1
+    name: pyrra
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/pyrra-0.9.0/pyrra-0.9.0.tgz
+    version: 0.9.0
+  - apiVersion: v2
     appVersion: v0.6.2
     created: "2023-05-24T10:31:32.672445176Z"
     description: SLO manager and alert generator
@@ -1897,4 +1907,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2023-06-08T20:35:22.07580426Z"
+generated: "2023-09-18T12:46:56.658131103Z"
