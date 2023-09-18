@@ -16,9 +16,9 @@ image:
 additionalLabels: {}
   # app: pyrra
 
-# Extra args for Pyrra's API container
+# -- Extra args for Pyrra's API container
 extraApiArgs: []
-# Extra args for Pyrra's Kubernetes container
+# -- Extra args for Pyrra's Kubernetes container
 extraKubernetesArgs: []
 
 serviceAccount:

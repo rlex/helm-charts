@@ -13,8 +13,8 @@ Additionaly, you (most likely) will need to specify prometheusExternalUrl with U
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | additionalLabels | object | `{}` |  |
-| extraApiArgs | list | `[]` |  |
-| extraKubernetesArgs | list | `[]` |  |
+| extraApiArgs | list | `[]` | Extra args for Pyrra's API container |
+| extraKubernetesArgs | list | `[]` | Extra args for Pyrra's Kubernetes container |
 | fullnameOverride | string | `""` | Overrides helm-generated chart fullname |
 | genericRules.enabled | bool | `false` | enables generate Pyrra generic recording rules. Pyrra generates metrics with the same name for each SLO. |
 | image.pullPolicy | string | `"IfNotPresent"` | Overrides pullpolicy |
