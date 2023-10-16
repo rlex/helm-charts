@@ -18,7 +18,7 @@ image:
   # -- Image pull policy
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart appVersion.
-  tag: "11.5.0"
+  tag: ""
 
 serviceAccount:
   # -- Specifies whether a service account should be created
