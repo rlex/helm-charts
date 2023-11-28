@@ -191,6 +191,17 @@ entries:
   coroot:
   - apiVersion: v2
     appVersion: 0.17.0
+    created: "2023-11-28T15:13:29.039599223Z"
+    deprecated: true
+    description: A monitoring and troubleshooting tool for microservice architectures.
+    digest: 271961f4a004ea6fa0dd0f902e0f66dd0a87a35f1fd5cf2535e293b385011272
+    name: coroot
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/coroot-0.12.1/coroot-0.12.1.tgz
+    version: 0.12.1
+  - apiVersion: v2
+    appVersion: 0.17.0
     created: "2023-05-24T10:31:55.835698527Z"
     description: A monitoring and troubleshooting tool for microservice architectures.
     digest: bfaf3cc8ef7eecbeb523a142a6c7e7a1ce69c6a5b3fd04beebbdf0edbcc2e274
@@ -370,6 +381,18 @@ entries:
     - https://github.com/rlex/helm-charts/releases/download/coroot-0.1.0/coroot-0.1.0.tgz
     version: 0.1.0
   coroot-node-agent:
+  - apiVersion: v2
+    appVersion: 1.8.2
+    created: "2023-11-28T15:13:29.31419948Z"
+    deprecated: true
+    description: A Prometheus exporter based on eBPF that gathers comprehensive container
+      metrics
+    digest: 8c1f2cb885c2e33988ae2cbae00aa570e03f948d3cc95332b9a68a62b0c99426
+    name: coroot-node-agent
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/coroot-node-agent-0.7.1/coroot-node-agent-0.7.1.tgz
+    version: 0.7.1
   - apiVersion: v2
     appVersion: 1.8.2
     created: "2023-05-24T10:31:44.610290521Z"
@@ -1917,4 +1940,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2023-10-18T14:57:31.688789533Z"
+generated: "2023-11-28T15:13:29.314735892Z"
