@@ -1,6 +1,6 @@
 # kube-web-view
 
-![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 23.2.0](https://img.shields.io/badge/AppVersion-23.2.0-informational?style=flat-square)
+![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 23.8.0](https://img.shields.io/badge/AppVersion-23.8.0-informational?style=flat-square)
 
 Kubernetes Web View to list and view all Kubernetes resources
 
@@ -17,7 +17,7 @@ Kubernetes Web View to list and view all Kubernetes resources
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"hjacobs/kube-web-view"` |  |
-| image.tag | string | `"23.2.0"` |  |
+| image.tag | string | `"23.8.0"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
