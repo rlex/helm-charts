@@ -2,6 +2,17 @@ apiVersion: v1
 entries:
   cloudflare-tunnel:
   - apiVersion: v2
+    appVersion: 2023.10.0
+    created: "2023-11-28T23:34:35.354545752Z"
+    description: Manage and use cloudflare tunnels (also known as argo tunnels) on
+      k8s cluster
+    digest: 4eae598493b44ad404b68bcbad02ef5d3ca186e9bb9f47b472edafd928741364
+    name: cloudflare-tunnel
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/cloudflare-tunnel-0.8.0/cloudflare-tunnel-0.8.0.tgz
+    version: 0.8.0
+  - apiVersion: v2
     appVersion: 2023.5.1
     created: "2023-05-24T10:32:23.245286628Z"
     description: Manage and use cloudflare tunnels (also known as argo tunnels) on
@@ -948,6 +959,16 @@ entries:
     version: 0.7.0
   kube-web-view:
   - apiVersion: v2
+    appVersion: 23.8.0
+    created: "2023-11-28T23:34:35.498900261Z"
+    description: Kubernetes Web View to list and view all Kubernetes resources
+    digest: 1ced051f0931b6888abb6f3f1d971d3ea3a7c7d96fb704b15cf2bfa143c41c47
+    name: kube-web-view
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/kube-web-view-0.5.0/kube-web-view-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
     appVersion: 23.2.0
     created: "2023-02-24T18:50:45.161209765Z"
     description: Kubernetes Web View to list and view all Kubernetes resources
@@ -1645,6 +1666,28 @@ entries:
     version: 0.1.0
   yopass:
   - apiVersion: v2
+    appVersion: 11.15.1
+    created: "2023-11-28T23:34:35.636573564Z"
+    dependencies:
+    - condition: memcached.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.5.2
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.11.3
+    description: Secure sharing for secrets, passwords and files
+    digest: 7c3f173a5850f46640c5aa21860c115ac9b10a0506277aa17c97565751a1c0fb
+    home: https://github.com/jhaals/yopass
+    name: yopass
+    sources:
+    - https://github.com/rlex/helm-charts
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/yopass-0.8.0/yopass-0.8.0.tgz
+    version: 0.8.0
+  - apiVersion: v2
     appVersion: 11.15.0
     created: "2023-11-28T15:14:26.309697857Z"
     dependencies:
@@ -1962,4 +2005,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2023-11-28T15:14:26.310148387Z"
+generated: "2023-11-28T23:34:35.63697305Z"
