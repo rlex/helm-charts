@@ -835,6 +835,16 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/jsonvisio-0.1.0/jsonvisio-0.1.0.tgz
     version: 0.1.0
+  k8s-resources:
+  - apiVersion: v2
+    created: "2023-12-07T15:53:15.000657905Z"
+    description: Helm chart to create any type of k8s resource
+    digest: 4ee55880144b8d552ba9c373355ea0acb049c5069e29f1af8f03ff022d7cd13a
+    name: k8s-resources
+    type: application
+    urls:
+    - https://github.com/rlex/helm-charts/releases/download/k8s-resources-0.1.0/k8s-resources-0.1.0.tgz
+    version: 0.1.0
   kube-resource-report:
   - apiVersion: v1
     appVersion: 0.7.1
@@ -2005,4 +2015,4 @@ entries:
     urls:
     - https://github.com/rlex/helm-charts/releases/download/yopass-0.1.2/yopass-0.1.2.tgz
     version: 0.1.2
-generated: "2023-11-28T23:34:35.63697305Z"
+generated: "2023-12-07T15:53:15.001089067Z"
