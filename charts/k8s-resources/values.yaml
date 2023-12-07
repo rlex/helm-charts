@@ -1,0 +1,21 @@
+# -- overrides chart name
+nameOverride: ""
+# -- Overrides helm-generated chart fullname
+fullnameOverride: ""
+# -- dict with user-provided resources
+resources: {}
+#  - name: vpa-loki-ingester
+#    fullnameOverride: "vpa-loki-ingester"
+#    annotations:
+#      annotation: value
+#    labels:
+#      some-label: value
+#    apiVersion: autoscaling.k8s.io/v1
+#    kind: VerticalPodAutoscaler
+#    spec:
+#      targetRef:
+#        apiVersion: "apps/v1"
+#        kind: Deployment
+#        name: loki-ingester
+#      updatePolicy:
+#        updateMode: "Off"
