@@ -9,7 +9,7 @@ metadata:
     {{- toYaml .Values.serviceMonitor.labels | nindent 4}}
     {{- end }}
 spec:
-  jobLabel: {{ .Values.serviceMonitor.jobLabel | quote }}
+  jobLabel: {{ .Values.serviceMonitor.jobLabel | default (printf "%s-server" (include "pyrra.fullname" .)) }}
   selector:
     matchLabels:
       {{- include "pyrra.selectorLabels" . | nindent 6 }}
