@@ -9,9 +9,9 @@ jobs:
       matrix:
         k8s-version:
           - "kindest/node:v1.29.0"
-          - "kindest/node:v1.28.4"
-          - "kindest/node:v1.27.3"
-          - "kindest/node:v1.26.6"
+          - "kindest/node:v1.28.0"
+          - "kindest/node:v1.27.0"
+          - "kindest/node:v1.26.0"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
