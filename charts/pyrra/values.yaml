@@ -11,7 +11,7 @@ image:
   # -- Overrides pullpolicy
   pullPolicy: IfNotPresent
   # -- Overrides the image tag
-  tag: "v0.7.1"
+  tag: "v0.7.2"
 
 additionalLabels: {}
   # app: pyrra
@@ -96,6 +96,8 @@ serviceMonitor:
   enabled: false
   # -- Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
   labels: {}
+  # -- provides the possibility to override the jobName if needed
+  # jobLabel: fancy-pyrra-server
 
 genericRules:
   # -- enables generate Pyrra generic recording rules. Pyrra generates metrics with the same name for each SLO.
