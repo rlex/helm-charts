@@ -2,11 +2,9 @@
 	"extends": [
 		"config:base"
 	],
+	"bumpVersion": "minor",
 	"helmfile": {
 		"fileMatch": ["^helm\\\/releases\\\/.*\\.yaml$"]
-	},
-	"helm-values": {
-		"bumpVersion": "minor"
 	},
 	"github-actions": {
 		"fileMatch": ["^\\.github\\\/workflows\\\/.*\\.ya?ml$"]
