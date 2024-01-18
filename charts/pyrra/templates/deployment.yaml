@@ -35,11 +35,19 @@ spec:
             {{- if .Values.genericRules.enabled }}
             - --generic-rules
             {{- end }}
+            {{- if and .Values.validatingWebhookConfiguration.enabled ($.Capabilities.APIVersions.Has "cert-manager.io/v1") }}
+            - --disable-webhooks=false
+            {{- end }}
             {{- with .Values.extraKubernetesArgs }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- if and .Values.validatingWebhookConfiguration.enabled ($.Capabilities.APIVersions.Has "cert-manager.io/v1") }}
+          volumeMounts:
+          - mountPath: /tmp/k8s-webhook-server/serving-certs
+            name: certs
+          {{- end }}
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -69,4 +77,10 @@ spec:
       {{- with .Values.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- if and .Values.validatingWebhookConfiguration.enabled ($.Capabilities.APIVersions.Has "cert-manager.io/v1") }}
+      volumes:
+        - name: certs
+          secret:
+            secretName: {{ include "pyrra.fullname" . }}-webhook-validation
       {{- end }}
