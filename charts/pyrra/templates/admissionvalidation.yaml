@@ -1,0 +1,48 @@
+{{- if and .Values.validatingWebhookConfiguration.enabled ($.Capabilities.APIVersions.Has "cert-manager.io/v1") }}
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ include "pyrra.fullname" . }}-selfsigned
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "pyrra.fullname" . }}-webhook-validation
+spec:
+  dnsNames:
+  -  {{ include "pyrra.fullname" . }}.{{ .Release.Namespace }}.svc
+  issuerRef:
+    name: {{ include "pyrra.fullname" . }}-selfsigned
+  secretName: {{ include "pyrra.fullname" . }}-webhook-validation
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  annotations:
+    cert-manager.io/inject-ca-from: {{ .Release.Namespace }}/{{ include "pyrra.fullname" . }}-webhook-validation
+  name: {{ include "pyrra.fullname" . }}-validating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: {{ include "pyrra.fullname" . }}
+      namespace: {{ .Release.Namespace }}
+      path: /validate-pyrra-dev-v1alpha1-servicelevelobjective
+      port: 9443
+  failurePolicy: Fail
+  name: slo.pyrra.dev-servicelevelobjectives
+  rules:
+  - apiGroups:
+    - pyrra.dev
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - servicelevelobjectives
+  sideEffects: None
+{{- end }}
