@@ -106,3 +106,14 @@ genericRules:
 validatingWebhookConfiguration:
   # -- enables admission webhook for server to validate SLOs, this requires cert-manager to be installed
   enabled: false
+
+dashboards:
+  # -- enables Grafana dashboards being deployed via configmap
+  enabled: false
+  namespace: ~
+  # -- default value from the Grafana chart
+  label: grafana_dashboard
+  # -- default value from the Grafana chart
+  labelValue: "1"
+  annotations: {}
+  extraLabels: {}

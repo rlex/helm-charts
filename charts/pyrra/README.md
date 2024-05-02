@@ -1,6 +1,6 @@
 # pyrra
 
-![Version: 0.12.3](https://img.shields.io/badge/Version-0.12.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.7.5](https://img.shields.io/badge/AppVersion-v0.7.5-informational?style=flat-square)
+![Version: 0.13.0](https://img.shields.io/badge/Version-0.13.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.7.5](https://img.shields.io/badge/AppVersion-v0.7.5-informational?style=flat-square)
 
 SLO manager and alert generator
 
@@ -12,11 +12,21 @@ Additionaly, you (most likely) will need to specify prometheusExternalUrl with U
 Pyrra can be configured to validate SLOs and SLO groups using a webhook admission controller. This is an optional feature that can be enabled by setting the `validatingWebhookConfiguration.enabled` value to `true`. The webhook admission controller will validate SLOs when they are created or updated.
 If the SLO object is invalid, the admission controller will reject the request and provide a reason for the failure. This requires cert-manager to be installed in the cluster. If cert-manager is not installed, the webhook admission controller will not be created.
 
+## Grafana dashboards
+Pyrra provides Grafana dashboards additionally to it's own UI.
+The dashboards can be deployed using a ConfigMap and get's automatically [reloaded by a Grafana sidecar](https://github.com/grafana/helm-charts/tree/main/charts/grafana#sidecar-for-dashboards).
+
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | additionalLabels | object | `{}` |  |
+| dashboards.annotations | object | `{}` |  |
+| dashboards.enabled | bool | `false` | enables Grafana dashboards being deployed via configmap |
+| dashboards.extraLabels | object | `{}` |  |
+| dashboards.label | string | `"grafana_dashboard"` | default value from the Grafana chart |
+| dashboards.labelValue | string | `"1"` | default value from the Grafana chart |
+| dashboards.namespace | string | `nil` |  |
 | extraApiArgs | list | `[]` | Extra args for Pyrra's API container |
 | extraKubernetesArgs | list | `[]` | Extra args for Pyrra's Kubernetes container |
 | fullnameOverride | string | `""` | Overrides helm-generated chart fullname |
