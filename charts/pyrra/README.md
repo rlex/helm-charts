@@ -44,14 +44,18 @@ The dashboards can be deployed using a ConfigMap and get's automatically [reload
 | ingress.tls | list | `[]` |  |
 | nameOverride | string | `""` | overrides chart name |
 | nodeSelector | object | `{}` | node selector for scheduling server pod |
+| operatorMetricsAddress | string | `":8080"` | Address to expose operator metrics |
 | podAnnotations | object | `{}` | additional annotations for server pod |
 | podSecurityContext | object | `{}` | additional security context for server pod |
 | prometheusExternalUrl | string | `""` | url to public-facing prometheus UI in case it differs from prometheusUrl |
+| prometheusRule.enabled | bool | `false` | enables creation of PrometheusRules to monitor Pyrra |
+| prometheusRule.labels | object | `{}` | Set labels that will be applied on all PrometheusRules (alerts) |
 | prometheusUrl | string | `"http://prometheus-operated.monitoring.svc.cluster.local:9090"` | url to prometheus instance with metrics |
 | resources | object | `{}` | resource limits and requests for server pod |
 | securityContext | object | `{}` | additional security context for server |
 | service.annotations | object | `{}` | Annotations to add to the service |
 | service.nodePort | string | `""` | node port for HTTP, choose port between <30000-32767> |
+| service.operatorMetricsPort | int | `8080` | service port for operator metrics |
 | service.port | int | `9099` | service port for server |
 | service.type | string | `"ClusterIP"` | service type for server |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |

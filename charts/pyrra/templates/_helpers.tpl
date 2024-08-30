@@ -64,3 +64,10 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Operator metrics port
+*/}}
+{{- define "pyrra.operatorMetricsPort" -}}
+{{ (split ":" .Values.operatorMetricsAddress)._1 }}
+{{- end }}

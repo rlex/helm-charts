@@ -20,5 +20,8 @@ spec:
       {{- if .Values.service.nodePort }}
       nodePort: {{ .Values.service.nodePort }}
       {{- end }}
+    - name: op-metrics
+      port: {{ .Values.service.operatorMetricsPort }}
+      targetPort: {{ include "pyrra.operatorMetricsPort" . }}
   selector:
     {{- include "pyrra.selectorLabels" . | nindent 4 }}
