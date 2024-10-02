@@ -68,6 +68,12 @@ The dashboards can be deployed using a ConfigMap and get's automatically [reload
 | serviceMonitor.labels | object | `{}` | Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator |
 | serviceMonitor.metricRelabelings | list | `[]` | Set metric relabelings for the ServiceMonitor |
 | serviceMonitor.relabelings | list | `[]` | Set relabelings for the ServiceMonitor |
+| serviceMonitorOperator.enabled | bool | `true` | enables servicemonitor for operator monitoring |
+| serviceMonitorOperator.interval | string | `""` | Set interval for scraping metrics |
+| serviceMonitorOperator.jobLabel | string | `""` | provides the possibility to override the jobName if needed |
+| serviceMonitorOperator.labels | object | `{}` | Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator |
+| serviceMonitorOperator.metricRelabelings | list | `[]` | Set metric relabelings for the ServiceMonitor |
+| serviceMonitorOperator.relabelings | list | `[]` | Set relabelings for the ServiceMonitor |
 | tolerations | object | `{}` | tolerations for scheduling server pod |
 | validatingWebhookConfiguration.enabled | bool | `false` | enables admission webhook for server to validate SLOs, this requires cert-manager to be installed |
 

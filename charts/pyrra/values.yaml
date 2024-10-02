@@ -109,6 +109,20 @@ serviceMonitor:
   # -- Set relabelings for the ServiceMonitor
   relabelings: []
 
+serviceMonitorOperator:
+  # -- enables servicemonitor for operator monitoring
+  enabled: true
+  # -- Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
+  labels: {}
+  # -- provides the possibility to override the jobName if needed
+  jobLabel: ""
+  # -- Set interval for scraping metrics
+  interval: ""
+  # -- Set metric relabelings for the ServiceMonitor
+  metricRelabelings: []
+  # -- Set relabelings for the ServiceMonitor
+  relabelings: []
+
 prometheusRule:
   # -- enables creation of PrometheusRules to monitor Pyrra
   enabled: false

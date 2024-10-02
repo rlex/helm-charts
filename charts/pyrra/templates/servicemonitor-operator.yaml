@@ -1,0 +1,32 @@
+{{- if .Values.serviceMonitorOperator.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ template "pyrra.fullname" . }}
+  labels:
+    {{- include "pyrra.labels" . | nindent 4 }}
+    {{- if .Values.serviceMonitorOperator.labels }}
+    {{- toYaml .Values.serviceMonitorOperator.labels | nindent 4}}
+    {{- end }}
+spec:
+  jobLabel: {{ .Values.serviceMonitorOperator.jobLabel | default (printf "%s-operator" (include "pyrra.fullname" .)) }}
+  selector:
+    matchLabels:
+      {{- include "pyrra.selectorLabels" . | nindent 6 }}
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
+  endpoints:
+  - port: op-metrics
+    {{- if .Values.serviceMonitorOperator.interval }}
+    interval: {{ .Values.serviceMonitorOperator.interval }}
+    {{- end }}
+    {{- if .Values.serviceMonitorOperator.metricRelabelings }}
+    metricRelabelings:
+    {{- toYaml .Values.serviceMonitorOperator.metricRelabelings | nindent 6 }}
+    {{- end }}
+    {{- if .Values.serviceMonitorOperator.relabelings }}
+    relabelings:
+    {{- toYaml .Values.serviceMonitorOperator.relabelings | nindent 6 }}
+    {{- end }}
+{{- end }}
