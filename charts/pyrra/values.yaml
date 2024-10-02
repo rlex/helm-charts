@@ -97,17 +97,26 @@ tolerations: {}
 
 serviceMonitor:
   # -- enables servicemonitor for server monitoring
-  enabled: false
+  enabled: true
   # -- Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
   labels: {}
   # -- provides the possibility to override the jobName if needed
-  # jobLabel: fancy-pyrra-server
+  jobLabel: ""
+  # -- Set interval for scraping metrics
+  interval: ""
+  # -- Set metric relabelings for the ServiceMonitor
+  metricRelabelings: []
+  # -- Set relabelings for the ServiceMonitor
+  relabelings: []
 
 prometheusRule:
   # -- enables creation of PrometheusRules to monitor Pyrra
   enabled: false
   # -- Set labels that will be applied on all PrometheusRules (alerts)
   labels: {}
+  pyrraReconciliationError:
+    # -- Set severity for PyrraReconciliationError alert
+    severity: warning
 
 genericRules:
   # -- enables generate Pyrra generic recording rules. Pyrra generates metrics with the same name for each SLO.

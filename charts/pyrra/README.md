@@ -1,6 +1,6 @@
 # pyrra
 
-![Version: 0.13.4](https://img.shields.io/badge/Version-0.13.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.7.7](https://img.shields.io/badge/AppVersion-v0.7.7-informational?style=flat-square)
+![Version: 0.14.0](https://img.shields.io/badge/Version-0.14.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.7.7](https://img.shields.io/badge/AppVersion-v0.7.7-informational?style=flat-square)
 
 SLO manager and alert generator
 
@@ -50,6 +50,7 @@ The dashboards can be deployed using a ConfigMap and get's automatically [reload
 | prometheusExternalUrl | string | `""` | url to public-facing prometheus UI in case it differs from prometheusUrl |
 | prometheusRule.enabled | bool | `false` | enables creation of PrometheusRules to monitor Pyrra |
 | prometheusRule.labels | object | `{}` | Set labels that will be applied on all PrometheusRules (alerts) |
+| prometheusRule.pyrraReconciliationError.severity | string | `"warning"` | Set severity for PyrraReconciliationError alert |
 | prometheusUrl | string | `"http://prometheus-operated.monitoring.svc.cluster.local:9090"` | url to prometheus instance with metrics |
 | resources | object | `{}` | resource limits and requests for server pod |
 | securityContext | object | `{}` | additional security context for server |
@@ -61,8 +62,12 @@ The dashboards can be deployed using a ConfigMap and get's automatically [reload
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | If not set and create is true, a name is generated using the fullname template |
-| serviceMonitor.enabled | bool | `false` | enables servicemonitor for server monitoring |
+| serviceMonitor.enabled | bool | `true` | enables servicemonitor for server monitoring |
+| serviceMonitor.interval | string | `""` | Set interval for scraping metrics |
+| serviceMonitor.jobLabel | string | `""` | provides the possibility to override the jobName if needed |
 | serviceMonitor.labels | object | `{}` | Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator |
+| serviceMonitor.metricRelabelings | list | `[]` | Set metric relabelings for the ServiceMonitor |
+| serviceMonitor.relabelings | list | `[]` | Set relabelings for the ServiceMonitor |
 | tolerations | object | `{}` | tolerations for scheduling server pod |
 | validatingWebhookConfiguration.enabled | bool | `false` | enables admission webhook for server to validate SLOs, this requires cert-manager to be installed |
 
