@@ -38,6 +38,9 @@ spec:
             {{- if and .Values.validatingWebhookConfiguration.enabled ($.Capabilities.APIVersions.Has "cert-manager.io/v1") }}
             - --disable-webhooks=false
             {{- end }}
+            {{- if .Values.operatorMetricsAddress }}
+            - --metrics-addr={{ .Values.operatorMetricsAddress }}
+            {{- end }}
             {{- with .Values.extraKubernetesArgs }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
@@ -48,6 +51,9 @@ spec:
           - mountPath: /tmp/k8s-webhook-server/serving-certs
             name: certs
           {{- end }}
+          ports:
+            - name: op-metrics
+              containerPort: {{ include "pyrra.operatorMetricsPort" . }}
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
