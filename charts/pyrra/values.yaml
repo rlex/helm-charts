@@ -97,7 +97,7 @@ tolerations: {}
 
 serviceMonitor:
   # -- enables servicemonitor for server monitoring
-  enabled: true
+  enabled: false
   # -- Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
   labels: {}
   # -- provides the possibility to override the jobName if needed
@@ -111,7 +111,7 @@ serviceMonitor:
 
 serviceMonitorOperator:
   # -- enables servicemonitor for operator monitoring
-  enabled: true
+  enabled: false
   # -- Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
   labels: {}
   # -- provides the possibility to override the jobName if needed
