@@ -62,13 +62,13 @@ The dashboards can be deployed using a ConfigMap and get's automatically [reload
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | If not set and create is true, a name is generated using the fullname template |
-| serviceMonitor.enabled | bool | `true` | enables servicemonitor for server monitoring |
+| serviceMonitor.enabled | bool | `false` | enables servicemonitor for server monitoring |
 | serviceMonitor.interval | string | `""` | Set interval for scraping metrics |
 | serviceMonitor.jobLabel | string | `""` | provides the possibility to override the jobName if needed |
 | serviceMonitor.labels | object | `{}` | Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator |
 | serviceMonitor.metricRelabelings | list | `[]` | Set metric relabelings for the ServiceMonitor |
 | serviceMonitor.relabelings | list | `[]` | Set relabelings for the ServiceMonitor |
-| serviceMonitorOperator.enabled | bool | `true` | enables servicemonitor for operator monitoring |
+| serviceMonitorOperator.enabled | bool | `false` | enables servicemonitor for operator monitoring |
 | serviceMonitorOperator.interval | string | `""` | Set interval for scraping metrics |
 | serviceMonitorOperator.jobLabel | string | `""` | provides the possibility to override the jobName if needed |
 | serviceMonitorOperator.labels | object | `{}` | Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator |
