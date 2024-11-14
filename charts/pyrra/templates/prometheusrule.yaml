@@ -1,0 +1,26 @@
+{{- if .Values.prometheusRule.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: {{ include "pyrra.fullname" . }}-prometheusrule
+  labels:
+    {{- include "pyrra.labels" . | nindent 4 }}
+spec:
+  groups:
+    - name: {{ include "pyrra.fullname" . }}-prometheusrules
+      rules:
+        - alert: PyrraReconciliationError
+          # We use a 20m interval as the controller only reconciles roughly once every 15 minutes. This interval is
+          # large enough to stop the rate from dropping to 0, causing a flapping alert.
+          # The interval is short enough to resolve within a reasonable time after a broken SLO has been fixed/removed.
+          expr: sum by (job) (rate(controller_runtime_reconcile_errors_total{controller="servicelevelobjective"}[20m])) > 0
+          for: 1m
+          labels:
+            severity: {{ .Values.prometheusRule.pyrraReconciliationError.severity }}
+            {{- if .Values.prometheusRule.labels }}
+            {{- toYaml .Values.prometheusRule.labels | nindent 12 }}
+            {{- end }}
+          annotations:
+            summary: Failed to reconcile state
+            description: 'Pyrra Kubernetes operator failed to reconcile. Check logs for invalid ServiceLevelObjectives.'
+{{- end }}

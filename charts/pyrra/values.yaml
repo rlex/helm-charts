@@ -20,6 +20,8 @@ additionalLabels: {}
 extraApiArgs: []
 # -- Extra args for Pyrra's Kubernetes container
 extraKubernetesArgs: []
+# -- Address to expose operator metrics
+operatorMetricsAddress: ":8080"
 
 serviceAccount:
   # -- Specifies whether a service account should be created
@@ -52,6 +54,8 @@ service:
   # -- service nodePort to expose
   # -- node port for HTTP, choose port between <30000-32767>
   nodePort: ""
+  # -- service port for operator metrics
+  operatorMetricsPort: 8080
 
 ingress:
   # -- enables ingress for server UI
@@ -74,7 +78,7 @@ ingress:
   #      - chart-example.local
 
 # -- resource limits and requests for server pod
-resources:  {}
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -97,7 +101,36 @@ serviceMonitor:
   # -- Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
   labels: {}
   # -- provides the possibility to override the jobName if needed
-  # jobLabel: fancy-pyrra-server
+  jobLabel: ""
+  # -- Set interval for scraping metrics
+  interval: ""
+  # -- Set metric relabelings for the ServiceMonitor
+  metricRelabelings: []
+  # -- Set relabelings for the ServiceMonitor
+  relabelings: []
+
+serviceMonitorOperator:
+  # -- enables servicemonitor for operator monitoring
+  enabled: false
+  # -- Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
+  labels: {}
+  # -- provides the possibility to override the jobName if needed
+  jobLabel: ""
+  # -- Set interval for scraping metrics
+  interval: ""
+  # -- Set metric relabelings for the ServiceMonitor
+  metricRelabelings: []
+  # -- Set relabelings for the ServiceMonitor
+  relabelings: []
+
+prometheusRule:
+  # -- enables creation of PrometheusRules to monitor Pyrra
+  enabled: false
+  # -- Set labels that will be applied on all PrometheusRules (alerts)
+  labels: {}
+  pyrraReconciliationError:
+    # -- Set severity for PyrraReconciliationError alert
+    severity: warning
 
 genericRules:
   # -- enables generate Pyrra generic recording rules. Pyrra generates metrics with the same name for each SLO.
