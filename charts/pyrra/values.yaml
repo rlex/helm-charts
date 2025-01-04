@@ -44,6 +44,10 @@ prometheusUrl: http://prometheus-operated.monitoring.svc.cluster.local:9090
 # -- url to public-facing prometheus UI in case it differs from prometheusUrl
 prometheusExternalUrl: ""
 
+# -- url under which the pyrra web server is serving content. this can be set when running behind a reverse proxy.
+# -- Must start with a slash and not end with a slash.
+routePrefix: ""
+
 service:
   # -- Annotations to add to the service
   annotations: {}
