@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
     - name: wget
-      image: busybox
+      image: busybox:1.37
       command: ['wget']
       {{- if .Values.routePrefix }}
       args: ['-O-', '{{ include "pyrra.fullname" . }}:{{ .Values.service.port }}{{ .Values.routePrefix }}']
