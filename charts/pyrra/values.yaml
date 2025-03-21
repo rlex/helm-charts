@@ -150,3 +150,5 @@ dashboards:
   labelValue: "1"
   annotations: {}
   extraLabels: {}
+
+isOpenshift: false
