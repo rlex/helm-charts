@@ -72,9 +72,18 @@ spec:
             {{- with .Values.extraApiArgs }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
+            {{- if .Values.isOpenshift }}
+            - --tls-client-ca-file=/etc/tls/openshift-service-ca.crt/service-ca.crt
+            - --prometheus-bearer-token-path=/var/run/secrets/kubernetes.io/serviceaccount/token
+            {{- end }}
           ports:
           - name: http
             containerPort: 9099
+          {{- if .Values.isOpenshift }}
+          volumeMounts:
+            - name: openshift-service-ca-crt
+              mountPath: /etc/tls/openshift-service-ca.crt
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -87,9 +96,16 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if and .Values.validatingWebhookConfiguration.enabled ($.Capabilities.APIVersions.Has "cert-manager.io/v1") }}
+      {{- if or (and .Values.validatingWebhookConfiguration.enabled ($.Capabilities.APIVersions.Has "cert-manager.io/v1")) .Values.isOpenshift }}
       volumes:
+      {{- if and .Values.validatingWebhookConfiguration.enabled ($.Capabilities.APIVersions.Has "cert-manager.io/v1") }}
         - name: certs
           secret:
             secretName: {{ include "pyrra.fullname" . }}-webhook-validation
+      {{- end }}
+      {{- if .Values.isOpenshift }}
+        - name: openshift-service-ca-crt
+          configMap:
+            name: openshift-service-ca.crt
+      {{- end }}
       {{- end }}
