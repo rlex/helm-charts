@@ -1,6 +1,6 @@
 # pyrra
 
-![Version: 0.14.2](https://img.shields.io/badge/Version-0.14.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.8.1](https://img.shields.io/badge/AppVersion-v0.8.1-informational?style=flat-square)
+![Version: 0.14.3](https://img.shields.io/badge/Version-0.14.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.8.1](https://img.shields.io/badge/AppVersion-v0.8.1-informational?style=flat-square)
 
 SLO manager and alert generator
 
@@ -53,6 +53,7 @@ The dashboards can be deployed using a ConfigMap and get's automatically [reload
 | prometheusRule.pyrraReconciliationError.severity | string | `"warning"` | Set severity for PyrraReconciliationError alert |
 | prometheusUrl | string | `"http://prometheus-operated.monitoring.svc.cluster.local:9090"` | url to prometheus instance with metrics |
 | resources | object | `{}` | resource limits and requests for server pod |
+| routePrefix | string | `""` | Must start with a slash and not end with a slash. |
 | securityContext | object | `{}` | additional security context for server |
 | service.annotations | object | `{}` | Annotations to add to the service |
 | service.nodePort | string | `""` | node port for HTTP, choose port between <30000-32767> |

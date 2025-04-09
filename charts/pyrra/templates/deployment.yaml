@@ -66,6 +66,9 @@ spec:
             {{- if .Values.prometheusExternalUrl }}
             - --prometheus-external-url={{ .Values.prometheusExternalUrl }}
             {{- end }}
+            {{- if .Values.routePrefix }}
+            - --route-prefix={{ .Values.routePrefix }}
+            {{- end }}
             {{- with .Values.extraApiArgs }}
             {{- toYaml . | nindent 12 }}
             {{- end }}

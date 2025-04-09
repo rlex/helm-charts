@@ -18,6 +18,9 @@ spec:
     - {{ .Release.Namespace }}
   endpoints:
   - port: http
+    {{- if .Values.routePrefix }}
+    path: {{ .Values.routePrefix }}/metrics
+    {{- end }}
     {{- if .Values.serviceMonitor.interval }}
     interval: {{ .Values.serviceMonitor.interval }}
     {{- end }}
