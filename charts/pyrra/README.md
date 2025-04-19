@@ -55,6 +55,7 @@ The dashboards can be deployed using a ConfigMap and get's automatically [reload
 | prometheusRule.pyrraReconciliationError.severity | string | `"warning"` | Set severity for PyrraReconciliationError alert |
 | prometheusUrl | string | `"http://prometheus-operated.monitoring.svc.cluster.local:9090"` | url to prometheus instance with metrics |
 | resources | object | `{}` | resource limits and requests for server pod |
+| routePrefix | string | `""` | Must start with a slash and not end with a slash. |
 | securityContext | object | `{}` | additional security context for server |
 | service.annotations | object | `{}` | Annotations to add to the service |
 | service.nodePort | string | `""` | node port for HTTP, choose port between <30000-32767> |
