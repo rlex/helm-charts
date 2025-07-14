@@ -1,0 +1,10 @@
+{{- if .Values.openshift.isOpenshift }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "pyrra.fullname" . }}-injected-certs
+  labels:
+    config.openshift.io/inject-trusted-cabundle: "true"
+    {{- include "pyrra.labels" . | nindent 4 }}
+{{- end }}

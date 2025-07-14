@@ -1,0 +1,30 @@
+{{- if and .Values.openshift.isOpenshift .Values.openshift.openshiftRoute.enabled }}
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: {{ include "pyrra.fullname" . }}
+  annotations:
+    openshift.io/host.generated: 'true'
+    {{- with .Values.service.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  labels:
+    {{- include "pyrra.labels" . | nindent 4 }}
+spec:
+  to:
+    kind: Service
+    name: {{ include "pyrra.fullname" . }}
+  port:
+    {{- if .Values.openshift.openshiftOauth.enabled }}
+    targetPort: https
+    {{- else }}
+    targetPort: http
+    {{- end }}
+  tls:
+    {{- if .Values.openshift.openshiftOauth.enabled }}
+    termination: Reencrypt
+    {{- else }}
+    termination: Edge
+    {{- end }}
+{{- end }}
