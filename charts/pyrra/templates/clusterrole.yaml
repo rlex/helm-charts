@@ -43,3 +43,29 @@ rules:
   - get
   - patch
   - update
+{{- if .Values.openshift.isOpenshift }}
+- apiGroups:
+  - monitoring.coreos.com
+  resources:
+  - prometheuses/api
+  resourceNames:
+  - k8s
+  verbs:
+  - get
+  - create
+  - update
+{{- if .Values.openshift.openshiftOauth.enabled }}
+- verbs:
+  - create
+  apiGroups:
+  - authentication.k8s.io
+  resources:
+  - tokenreviews
+- verbs:
+  - create
+  apiGroups:
+  - authorization.k8s.io
+  resources:
+  - subjectaccessreviews
+{{- end }}
+{{- end }}

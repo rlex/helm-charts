@@ -1,6 +1,6 @@
 # pyrra
 
-![Version: 0.14.3](https://img.shields.io/badge/Version-0.14.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.8.1](https://img.shields.io/badge/AppVersion-v0.8.1-informational?style=flat-square)
+![Version: 0.14.4](https://img.shields.io/badge/Version-0.14.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.8.1](https://img.shields.io/badge/AppVersion-v0.8.1-informational?style=flat-square)
 
 SLO manager and alert generator
 
@@ -44,6 +44,11 @@ The dashboards can be deployed using a ConfigMap and get's automatically [reload
 | ingress.tls | list | `[]` |  |
 | nameOverride | string | `""` | overrides chart name |
 | nodeSelector | object | `{}` | node selector for scheduling server pod |
+| openshift.isOpenshift | bool | `false` | enables common OpenShift support |
+| openshift.openshiftOauth.enabled | bool | `false` | enables OpenShift OAuth-proxy |
+| openshift.openshiftOauth.openshiftOauthProxyImage | string | `"openshift/oauth-proxy:latest"` | OpenShift OAuth-proxy image |
+| openshift.openshiftOauth.sessionSecret | string | `""` | SessionSecret for OpenShift OAuth-proxy, string |
+| openshift.openshiftRoute.enabled | bool | `false` | enables creation of OpenShift route |
 | operatorMetricsAddress | string | `":8080"` | Address to expose operator metrics |
 | podAnnotations | object | `{}` | additional annotations for server pod |
 | podSecurityContext | object | `{}` | additional security context for server pod |
