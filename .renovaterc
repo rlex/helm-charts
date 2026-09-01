@@ -15,5 +15,6 @@
       "automerge": false
     }
 	],
-	"ignoreTests": false
+	"ignoreTests": false,
+	"ignorePaths": ["charts/pyrra/**"]
 }
