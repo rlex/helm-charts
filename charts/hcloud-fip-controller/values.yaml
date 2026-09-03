@@ -10,7 +10,7 @@ replicaCount: 3
 
 image:
   repository: cbeneke/hcloud-fip-controller
-  tag: v0.4.1
+  tag: 0.6.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
