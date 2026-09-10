@@ -154,3 +154,17 @@ dashboards:
   labelValue: "1"
   annotations: {}
   extraLabels: {}
+
+openshift:
+  # -- enables common OpenShift support
+  isOpenshift: false
+  openshiftOauth:
+    # -- enables OpenShift OAuth-proxy
+    enabled: false
+    # -- OpenShift OAuth-proxy image
+    openshiftOauthProxyImage: "openshift/oauth-proxy:latest"
+    # -- SessionSecret for OpenShift OAuth-proxy, string
+    sessionSecret: ""
+  openshiftRoute:
+    # -- enables creation of OpenShift route
+    enabled: false
